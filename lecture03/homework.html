@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project01 - Alert 박스 UI 만들기</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+
+    <div id="id" class="alert_box">
+        아이디를 입력하세요.
+        <button onclick="아이디('none')">close!</button>
+    </div>
+    <div id="password" class="alert_box">
+        비밀번호를 입력하세요.
+        <button onclick="비밀번호('none')">close!</button>
+    </div>
+
+    <button onclick="아이디('block')">Id</button>
+    <button onclick="비밀번호('block')">Password</button>
+
+
+
+
+    <script>
+        function 아이디(구멍) {
+            document.getElementById('id').style.display = 구멍;
+        }
+        function 비밀번호(구멍) {
+            document.getElementById('password').style.display = 구멍;
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+.alert_box{
+    background: #f68446;
+    padding: 20px;
+    color: #fff;
+    border-radius: 5px;
+    display: none;
+}

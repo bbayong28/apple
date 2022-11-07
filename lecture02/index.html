@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project01 - Alert 박스 UI 만들기</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+
+    <div id="alert" class="alert_box">
+        알림창
+        <button onclick="document.getElementById('alert').style.display = 'none';">close!</button>
+    </div>
+    <!-- 
+    onclick이 한글이고 추상적이라 컴퓨터가 못알아들음
+    <button onclick="alert박스 보여줘~">open!</button>
+    -->
+    <!-- 따옴표 주의!!!!! 큰따옴표 안에는 작은 따옴표, 작은 따옴표 안에는 큰다옴표! 잘 지키기 -->
+    <button onclick="알림창열기()">open!</button>
+
+
+    <script>
+        function 알림창열기() {
+            document.getElementById('alert').style.display = 'block';
+        }
+
+        function 알림창닫기() {
+            document.getElementById('alert').style.display = 'none';
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+
+<!-- 
+    DAY 02
+    - alert 박스 만들기
+    - 모달창 만들기
+    - 탭 만들기
+    - 메뉴 만들기
+
+    UI 만드는 step
+    1. HTML/CSS로 미리 디자인
+    2. 필요할 때 보여달라고 js짬
+
+    (교훈)
+    컴퓨터는 지능이0임
+    구체적으로 설명해야함
+
+    DAY 03
+    초보때는 실수하니까 자동완성 기능이 좋다.
+
+    긴 코드 짧은단어로 축약하는 법 -> function 문법 쓰기
+    function 작명은 
+    구체적인게 좋음(ex 알림창 열기)
+    함수명 영어작명시엔 소문자로 시작, camelCase써야함 - 띄어스기, 언더바 잘 안씀
+
+    1. 조작할 html 하단에 코드를 짜야 잘됨
+    2. 셀렉터 오타 주의(크롬 검사 개발자도구 console창에 에러 확인!!)
+    3. 그냥 기본문법 오타
+
+
+
+
+
+
+
+
+
+
+
+-->

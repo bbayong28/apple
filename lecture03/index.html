@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project01 - Alert 박스 UI 만들기</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+
+    <div id="alert" class="alert_box">
+        알림창
+        <button onclick="열기닫기('none')">close!</button>
+    </div>
+    <button onclick="열기닫기('block')">open!</button>
+
+
+
+
+
+
+    <script>
+
+        //function 알림창열기() {
+        //    document.getElementById('alert').style.display = 'block';
+        //}
+        //
+        //function 알림창닫기() {
+        //    document.getElementById('alert').style.display = 'none';
+        //}
+
+        //위 두 함수를 하나로 만들고 구멍안에 무엇을 넣어주느냐에 따라 다르게 작동하게 함!!
+
+        function 열기닫기(구멍) {
+            document.getElementById('alert').style.display = 구멍;
+        }
+
+        //파라미터 예시 2
+
+        //function plus1() {
+        //    2 + 1
+        //}
+        //function plus2() {
+        //    2 + 2
+        //}
+        //function plus3() {
+        //    2 + 3
+        //}
+
+        //위 여러 함수를 줄일 수 있음.
+
+        //function plus(n) {
+        //    2 + n
+        //}
+        //plus(1);
+        //plus(2);
+        //plus(3);
+
+    </script>
+
+
+</body>
+
+</html>
+
+<!--
+    DAY 04
+    오늘 배울 내용 : function에 구멍 뚫기
+    - 구멍 뚫어놓으면 함수 하나로 다양한 코드 실행이 가능해짐
+    - 비슷한 함수가 많으면 가변적인 부분을 구멍 뚫기!!!!
+
+    구멍 = 파라미터 = 인자 = argument
+    파라미터라고 쓰겠음.
+    function, 파라미터는 필수 문법이 아님.
+
+    파라미터 작명은 아무렇게나 가능.
+    파라미터 여러개 가능 => function 이름(구멍1, 구멍2){}
+    
+
+
+
+
+
+
+
+
+-->
