@@ -1,0 +1,39 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+
+.list-group{
+    display: none;
+}
+.show{
+    display: block;
+}
+
+.black-bg {
+  width : 100%;
+  height : 100%;
+  position : fixed;
+  background : rgba(0,0,0,0.5);
+  z-index : 5;
+  padding: 30px;
+  display: none;
+}
+
+.white-bg {
+  background: white;
+  border-radius: 5px;
+  padding: 30px;
+} 
+
+.login{    
+  border: 1px solid #333;
+  background: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+.login:hover{    
+    background: #333;
+    color: #fff;
+  border: 1px solid #fff;
+}

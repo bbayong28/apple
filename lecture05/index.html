@@ -35,9 +35,19 @@
 
 
     <script>
-        document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function () {
-            document.getElementsByClassName('list-group')[0].classList.add('show');
+
+        //getElementsById / getElementsByClassName사용
+
+        //document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function () {
+        //    document.getElementsByClassName('list-group')[0].classList.toggle('show');
+        //})
+
+        //querySelector / querySelectorAll사용
+
+        document.querySelector('.navbar-toggler').addEventListener('click', function () {
+            document.querySelector('.list-group').classList.toggle('show');
         })
+
     </script>
 
 
@@ -68,9 +78,26 @@
     - 애니메이션 추가가 쉽다
     - 나중에 
 
+    버튼 누르면 open 한번 더 누르면 close되게 하는거
+    버튼을 짝수번 눌렀을때 show를 제거해 주세요  or  버튼 누를때 show가 이미 있으면 제거해주세요... 등등 방법은 많다.
+    - document.getElementsByClassName('list-group')[0].classList.add('show'); => 추가해줌
+    - document.getElementsByClassName('list-group')[0].classList.toggle('show'); => 뗏다 붙였다 해줌
 
+    셀렉터 종류
+    - getElementsById()
+    - getElementsByClassName()
+    - querySelector()
+    - querySelectorAll()
 
+    querySelector()
+    - 편리하지만 맨위에 나오는 한개만 찾아줌
+    - 클래스면 ('.클래스명') 아이디면 ('#아이디명')으로 작성해야한다.
 
+    document.querySelector('.list-group-item')이게 잘 찍히는지 알아보려면 console창 열어서 그대로 붙여넣으면 <li class="list-group-item">~~~~</li> 이라고 뜬다
+    5개의 li중에 제일 처음거만 찾아줌 
+    나는 두번째를 찾고싶다. 어떻게 할까?
+    document.querySelectorAll('.list-group-item')을 하면 5개 다잡음
+    document.querySelectorAll('.list-group-item')[1]을하면 두번째거 잡힘
 
 
 

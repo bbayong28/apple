@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar 만들기</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand">Navbar</span>
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+
+
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+    <button id="test-btn">버튼</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+
+    <script>
+        document.querySelector('.navbar-toggler').addEventListener('click', function () {
+            document.querySelector('.list-group').classList.toggle('show');
+        })
+
+
+        //$('.hello').html('바보');
+
+        //document.querySelector('#test-btn').addEventListener()
+        $('#test-btn').on('click', function () {
+            //$('.hello').hide()
+            //hide() display none이랑 비슷함
+            //$('.hello').fadeOut()
+            //$('.hello').slideUp()
+            $('.hello').toggle()
+        })
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
+
+
+<!-- 
+
+    DAY 07
+
+    안되거나 에러나면
+    - 개발자도구 console창 에러확인
+    - 셀렉터로 잘 선택했는지 출력
+
+    자바스크립트 특징 
+    - 너무 길고 더러움
+
+    HTML 조작문법을 쉽게 바꿔주는 라이브러리들
+    - JQuery
+    - React
+    - Vue 
+    등......
+    (but React와 Vue는 일정부분 자바스트립트 잘해야 할 수 있음 기초강의 다 듣고 도전하기)
+
+    JQuery는 언어가 아니라 자바스크립트의 라이브러리일 뿐이다
+
+    document.querySelector('.hello').innerHTML = '바보'  =  $('.hello').html('바보');
+
+    jquery 예시
+    - $('.hello').css('color', 'red');
+    - $('.hello').addClass('on')
+    - $('.hello').removeClass('on')
+    - $('.hello').toggleClass('on')
+
+    //<p>3개를 전부 '바보'로 바꾸려면?
+    //js
+    //document.querySelectorAll('.hello')[0].innerHTML = '바보'
+    //document.querySelectorAll('.hello')[1].innerHTML = '바보'
+    //document.querySelectorAll('.hello')[2].innerHTML = '바보'
+
+    //jquery
+    //$('.hello').html('바보');
+
+    =>여러줄의 js를 jquey한 줄이면 가능
+
+
+    $('.hello').hide()
+    $('.hello').fadeOut()
+    $('.hello').slideUp()
+    등.....
+
+
+    $('셀렉터')로 찾으면 jquery함수만 붙일 수 있음. (innerHTML, addEventListener 등등 banilla js 언어 못씀) *innerHTML 를 메소드 함수라고 부름!!!!   
+    querySelector('셀렉터')로 찾으면 자바스크립트 함수만 붙일 수 있음.
+
+
+
+
+
+
+
+ -->
