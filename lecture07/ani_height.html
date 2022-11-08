@@ -5,15 +5,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar 만들기</title>
+    <title>Modal창 만들기</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="./main.css">
+    <style>
+    @charset "utf-8";
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+    @import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+
+    .list-group{
+        display: none;
+    }
+    .show{
+        display: block;
+    }
+
+    .black-bg {
+        width : 100%;
+        height : 100%;
+        position : fixed;
+        background : rgba(0,0,0,0.5);
+        z-index : 5;
+        padding: 30px;
+        visibility: hidden;
+        height: 0;
+        transition: 0.5s;
+    }
+
+    .white-bg {
+        background: white;
+        border-radius: 5px;
+        padding: 30px;
+    }
+
+    .login{    
+        border: 1px solid #333;
+        background: white;
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+    .login:hover{    
+        background: #333;
+        color: #fff;
+        border: 1px solid #fff;
+    }
+
+    .show-modal{
+        visibility: visible;
+        height: 100%;
+    }
+    </style>
 </head>
 
 <body>
 
-    <div class="black-bg show-modal">
+    <div class="black-bg">
         <div class="white-bg">
             <h4>로그인하세요</h4>
             <button class="btn btn-danger" id="close">닫기</button>
@@ -64,6 +111,14 @@
         //    $('.black-bg').fadeOut();
         //})
 
+        $('#login').on('click', function(){
+            $('.black-bg').addClass('show-modal')
+        })
+        $('.btn-danger').on('click', function(){
+            $('.black-bg').removeClass('show-modal')
+        })
+
+
 
 
 
@@ -86,10 +141,12 @@
     애니메이션 줄 때 display:none 대용 
     display:none은 html에서 아예제거, visibility는 숨기는 거
 
+    
+
 
 
 
 
     
 
- -->
+-->
