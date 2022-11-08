@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project01 - Alert 박스 UI 만들기</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+
+    <div id="alert" class="alert_box">
+        <p id="title">알림창</p>
+        <button onclick=" 닫기('none')">close!</button>
+    </div>
+    <button onclick="알림창('아이디를 입력하세요.','block')">Id</button>
+    <button onclick="알림창('비밀번호를 입력하세요.','block')">Password</button>
+
+
+
+    <script>
+        function 닫기() {
+            document.getElementById('alert').style.display = '';
+        }
+
+        function 알림창(n1, n2) {
+            document.getElementById('title').innerHTML = n1;
+            document.getElementById('alert').style.display = n2;
+        }
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

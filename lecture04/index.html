@@ -12,21 +12,34 @@
 <body>
 
     <div id="alert" class="alert_box">
-        알림창
-        <button onclick="열기닫기('none')">close!</button>
+        <p class="title1">알림창</p>
+        <button id="close" class="title1">close!</button>
+        <!-- <button class="title1" onclick=" 닫기('none')">close!</button> -->
     </div>
-    <button onclick="열기닫기('block')">open!</button>
-
-
-
+    <button onclick="아이디알림창()">Id</button>
+    <button onclick="비밀번호알림창()">Password</button>
 
 
 
     <script>
-        function 열기닫기(구멍) {
-            document.getElementById('alert').style.display = 구멍;
+        //function 닫기() {
+        //    document.getElementById('alert').style.display = '';
+        //}
+
+        //onclick -> addEventListener
+        document.getElementById('close').addEventListener('click', function () {
+            document.getElementById('alert').style.display = 'none';
+        });
+
+        function 아이디알림창() {
+            document.getElementsByClassName('title1')[0].innerHTML = '아이디를 입력하세요.';
+            document.getElementById('alert').style.display = 'block';
         }
 
+        function 비밀번호알림창() {
+            document.getElementsByClassName('title1')[0].innerHTML = '비밀번호를 입력하세요.';
+            document.getElementById('alert').style.display = 'block';
+        }
     </script>
 
 
@@ -34,15 +47,35 @@
 
 </html>
 
-<!--
+<!-- 
     DAY 05
-    
+    class로 찾을 때
+    getElementsByClassName()
+    id는 하나지만 class는 여러개가 존재 할 수도 있음 => 뒤에 배열 몇번째인지 써줘야 함
+    그냥 getElementsByClassName('title1')하면 title1이 있는거 다 찾아줌 따라서 찾은것 중 몇번째 인지 척어줘야 함. 순서는 0부터시작!!!!!!
+
+    onclick 안에 길게 적는것들 간단히 할수 있게하는게 addEventListener()
+    addEventListener()이거쓰면 onclick 필요 없음.
+    onclick="아이디알림창()
+
+    addEventListener() 사용 법 
+
+    1. 내가 원하는 요소 찾기 => document.getElementById('close')
+    2. 어떤행동 시 어떻게 할지 => addEventListener('click', function () { document.getElementById('alert').style.display = 'none';
+    });
+
+    document.getElementById('close').addEventListener('click', function () {
+            document.getElementById('alert').style.display = 'none';
+    });
+
+    함수 파라미터 자리에 function(){} / 즉 함수를 집어넣으면 콜백함수라고 부름
+    자스에서 순차적으로 실행하고 싶을 때 콜백함수를 가끔 보임
+
+    event란? 
+    유저들이 내 웹페이지에서 조작을 가하는 것들 모두 이벤트라고 함.( click scroll mouseover keydown......몇십개 있음. )
+    유저가 조작, 행하는 것을 감시하는 역할
 
 
 
 
-
-
-
-
--->
+ -->

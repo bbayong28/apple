@@ -12,23 +12,45 @@
 <body>
 
     <div id="alert" class="alert_box">
-        <p>알림창</p>
-        <button onclick="열기닫기('none')">close!</button>
+        <p id="title">알림창</p>
+        <button onclick=" 닫기('none')">close!</button>
     </div>
-    <!--
-    <button onclick="1. p태그 내용을 아이디 입력으로 바꿈 2. 창을 띄움">Id</button>
-    <button onclick="1. p태그 내용을 비밀번호 입력으로 바꿈 2. 창을 띄움">Password</button>
-    -->
-    <button onclick="">Id</button>
-    <button onclick="">Password</button>
+    <button onclick="알림창('아이디를 입력하세요.','block')">Id</button>
+    <button onclick="알림창('비밀번호를 입력하세요.','block')">Password</button>
 
 
 
     <script>
-        function 열기닫기(구멍1, 구멍2) {
-            document.getElementById('alert').style.display = 구멍1;
-            document.getElementById('alert').innerHTML = 구멍2;
+        function 닫기() {
+            document.getElementById('alert').style.display = '';
         }
+
+
+        //1. p태그 내용을 아이디 입력으로 바꿈.
+        //document.getElementById('title').innerHTML = '아이디를 입력하세요.';
+        //2. 띄움
+        //document.getElementById('alert').display = 'block';
+
+        //function 아이디알림창() {
+        //    document.getElementById('title').innerHTML = '아이디를 입력하세요.';
+        //    document.getElementById('alert').style.display = 'block';
+        //}
+
+        //function 비밀번호알림창() {
+        //    document.getElementById('title').innerHTML = '비밀번호를 입력하세요.';
+        //    document.getElementById('alert').style.display = 'block';
+        //}
+
+        function 알림창(n1, n2) {
+            document.getElementById('title').innerHTML = n1;
+            document.getElementById('alert').style.display = n2;
+        }
+
+
+
+
+
+
 
     </script>
 
@@ -39,4 +61,9 @@
 
 <!-- 
     복잡하면 (상세히) 한글부터 짜고 코드로 옮겨보자
+    - <button onclick="1. p태그 내용을 아이디 입력으로 바꿈 2. 창을 띄움">Id</button>
+    - <button onclick="1. p태그 내용을 비밀번호 입력으로 바꿈 2. 창을 띄움">Password</button>
+
+
+
  -->
