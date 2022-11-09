@@ -72,47 +72,14 @@
             document.querySelector('.list-group').classList.toggle('show');
         })
 
-
         $('#login').on('click', function () {
-            $('.black-bg').fadeIn();
-        });
-        $('#close').on('click', function () {
-            $('.black-bg').fadeOut();
-        });
-
-        //얖의 조건식이 참이면 else문 뒤에는 아예 실행이 안됨.
-        //if(1 == 3){
-        //    console.log('맞아요1');
-        //}else if(3 == 3){
-        //    console.log('맞아요2');
-        //} 
-        //앞의 조건식과 상관없이 둘째 if문도 실행됨.
-        //if (1 == 3) {
-        //    console.log('맞아요1');
-        //}
-        //if (3 == 3) {
-        //    console.log('맞아요1');
-        //}
+            $('.black-bg').addClass('show-modal')
+        })
+        $('.btn-danger').on('click', function () {
+            $('.black-bg').removeClass('show-modal')
+        })
 
 
-
-        //1. 전송버튼 누를 때
-        //2. 첫째 <input>에 입력한 값이 공백이면(조건문)
-        //3. alert 띄우기
-
-        //if(3 < 1){
-        //    console.log('안녕')
-        //}else{
-        //    console.log('안녕2')
-        //}
-
-        //$('#submit').on('click', function () {
-        //   if('.form-control' == ""){
-        //    alert('아이디를 입력하세요.');
-        //   }
-        //})
-
-        //form이 발생할때 submit이라는 이벤트가 발생해서 이렇게 적어도 됨
         $('form').on('submit',function(e){
             if(document.getElementById('email').value == ''){
                 e.preventDefault();//폼전송 막기
@@ -126,13 +93,43 @@
                 e.preventDefault()
                 alert('비밀번호는 6자 이상이어야 합니다.');
             }            
-        });//중괄호 끝나고는 세미콜론(;) 생략가능하지만 소괄호끝나고는 꼭 세미콜론(;) 쳐주기
+        });
+        //input적으면 여기(document.getElementById('email')) 의 값이 변할때마다 콘솔에 발생 => 주로 치는 도중에 밑에 조금 더 입력하세요 띄우는 글씨 
+        //document.getElementById('email').addEventListener('input', function(){
+        //    console.log('안녕')
+        //});
+        //change는 input과 비슷하지만 input에 입력한 값이 바뀌고 포커스를 잃을 때 콘솔에 발생 => 주로 다치고 포커스 잃었을때 6자이상이어야합니다 같이 띄우는 글씨
+        //document.getElementById('email').addEventListener('change', function(){
+        //    console.log('안녕')
+        //});
+
+        //조건식 더 배우기!
+        //사실 if문 안엔 true/false를 넣어야 잘 작동함 (1 == 2)는 자동으로 false로 바뀜
+        //ture/ flase 는 boolean 타입임
+
+        // != 는 다름을 비교할 때 (1 != 1) 1이 1과 다르냐 => false
+        // ==는 느슨한 비교 ===는 엄격한 같음 비교(type까지 맞는 지 비교)
+        // !=는 느슨한 비교 !==는 엄격한 다름을 비교(type까지 맞는 지 비교)
+        //(1 == '1') => true (1 === '1') => false
+        if (1 === 2) {
+            console.log('안녕')
+        }
+
+        //true로 인식하는 자료들(truthy) => 0 제외 숫자, '문자', [], {}
+        //false로 인식하는 자료들(falsy) => 0, '', null, undefined, NaN
+        //조건 2개 이상을 동시에 비교하고 싶다면 &&, || 연산자
+
+        //&& => and  둘다 참이면 전체를 참으로 해주세요
+        if(1 == 1 && 2 == 2 && 3 == 3){
+            console.log('안녕')
+        }
+        //|| => or  둘 중 하나라도 참이면 전체를 참으로 해주세요
+        if(1 == 1 || 2 == 3){
+            console.log('안녕')
+        }
+        
 
 
-
-        //유저가 input에 입력한 값 가져오기
-        //document.getElementById('email').value;
-        //document.getElementById('password').value.length < 6;
 
     </script>
 
@@ -145,29 +142,8 @@
 
 <!-- 
 
-    DAY 09
+    DAY 10
 
-    <form>은 서버로 유저정보를 전송하려고 쓰는 것이다.
-    전송되게하려면 form태그안에 action을 적는다
-    <form action="url~~~~~"> => 전송할 url~~~~~적기 => 이서버 url로 정보가 전송이됨 
-
-    <form>안의 <button> 주의
-    - 전송버튼은 type="submit" 그외 버튼은 button type="button"
-
-    전송버튼 누를 때 첫째 <input>에 입력된게 없으면 alert띄우기
-
-    조건문 쓰는법
-     if(조건){조건이 참일 때 실행할 코드}
-     else{위 조건이 참이 아닐 때 실행할 코드}
-     조건 에는 거의 등호, 부등호 들어감
-     비교연산자 ==, <, <=, >, >=
-
-     참고
-    //e.preventDefault();   폼전송 막기
-
-    else if 문법
-    if(){}else if(){}
-    - else if : 그게아니면 만약에 / 조건식을 연달아 쓰고 싶을 때
 
     
 
