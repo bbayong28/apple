@@ -25,11 +25,11 @@
                 </div>
                 <button type="submit" class="btn btn-primary" id="sbmit">전송</button>
                 <button type="button" class="btn btn-danger" id="close">닫기</button>
-            </form> 
+            </form>
         </div>
     </div>
 
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light ">
         <div class="container-fluid">
             <span class="navbar-brand">Navbar</span>
             <span class="badge bg-dark">Dark mode</span>
@@ -47,7 +47,7 @@
     </ul>
 
     <div class="main-bg">
-        <h4>Shirts on Sale</h4> 
+        <h4>Shirts on Sale</h4>
         <button id="login" class="btn btn-primary">로그인</button>
     </div>
 
@@ -81,8 +81,8 @@
         })
 
 
-        $('form').on('submit',function(e){
-            if(document.getElementById('email').value == ''){
+        $('form').on('submit', function (e) {
+            if (document.getElementById('email').value == '') {
                 e.preventDefault();//폼전송 막기
                 alert('아이디를 입력하세요.');
             }
@@ -93,8 +93,28 @@
             else if (document.getElementById('password').value.length < 6) {
                 e.preventDefault()
                 alert('비밀번호는 6자 이상이어야 합니다.');
-            }            
+            }
         });
+
+
+        var count = 0;
+        $('.badge').on('click', function () {
+            count = count + 1;
+            //console.log(count);
+            if (count % 2 == 1) {
+                $('.badge').html('Light Mode');
+                $('body').addClass('dark');
+            } else {
+                $('.badge').html('Dark mode');
+                $('body').removeClass('dark');
+            }
+        });
+
+        var 이름 = 'kim';
+        let 이름 = 'kim';
+        const 이름 = 'kim';
+
+
 
 
 
@@ -109,7 +129,43 @@
 
 <!-- 
 
-    DAY 11
+    DAY 12
+
+    Bootstrap UI들은 스타일 바꾸려면 class명 수정해야 함.
+    navbar-light   =>   navbar-dark
+
+    변수의 선언, 할당, 범위    
+    - 선언 (변수 만들겟습니다)
+      var 이름
+    - 할당 (변수에 자료넣기)
+      이름 = 'kim'
+    - 선언 할당 같이
+      var 이름 = 'kim'
+    - 재할당 (재할당은 자유)
+      var 이름 = 'kim'
+      이름 = 'park'
+    - 범위
+      함수안에서 변수만들면 사용가능 범위는 함수 내부이다.(지역함수)
+      함수밖에서 만든 변수는 함수안에서 사용 가능
+
+    var, let, const 차이
+    - var 
+      재선언, 재할당이 자유로움.
+      범위 function
+    
+    - let
+      재선언 불가능.
+      재할당 가능.
+      범위 {}
+      -장점 : 코드를 길게 쓰다보면 이름 변수를 제선언한게 헷갈랄 수 있는데 얜 제선언 못하니까)
+      변수 까먹고 또 만들 수 있는데 let 쓰면 방지가능
+    
+    - const
+      재선언 불가능.
+      재할당 불가능.
+      범위 {}
+      -장점 : 변하면 안되는 값을 보관하기 좋음.
+     
 
 
     
