@@ -46,3 +46,24 @@
   cursor: pointer;
 }
 
+.slider{
+  overflow: hidden;
+}
+
+/* 그림 세개 가로로 나열하려면 width가 1개당 100vw니까 곱하기 3 해서 300vw */
+.slide-container{
+  width: 300vw;
+  /* margin-left: -100vw; 2번째 사진이 메인에 옴 */
+  /* margin-left: -200vw; 3번째 사진이 메인에 옴 */
+  /* transition: all 1s; */
+  /* transform: translateX(-100vw); margin-left 보다 성능적인 이점이 있고 부드러움 */
+}
+/* 그림 개당 width 100vw, 가로로 나열 */
+.slide-box{
+  width: 100vw;
+  float: left;
+}
+/* 이미지 크기에 맞추기 */
+.slide-box img{
+  width: 100%;
+}
