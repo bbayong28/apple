@@ -7,7 +7,14 @@
 :root{
   scroll-behavior: auto;
 }
-
+.ingBar{
+  position: fixed;
+  width: 100%;
+  z-index: 6;
+  height: 3px;
+  background: #000;
+  transition:  all 1s;
+}
 .list-group{
     display: none;
 }

@@ -342,12 +342,27 @@
             var 실제높이 = document.querySelector('.lorem').scrollHeight
             var 박스높이 = document.querySelector('.lorem').clientHeight
             console.log(스크롤양, 실제높이) // 284, 384 두개 안맞음 왜냐 scrollTop 은 내린 윗부분만 포함시킴. 그래서 마지막에 보이는 부분의 박스의 높이인 100을 추가시켜 줘야함 100이라고하지말고 구해줘보자! => clientHeight
+            
+            //scroll 이벤트 다룰때 주의할 점
+            //1. scroll 이벤트리스너 안의 코드는 1초에 60번 이상 실행됨. => 컴퓨터에게 부담을 주기 때문에 너무 많이 쓰면 안됨
+            //2. 체크도 여러번 중복으로 해줌
+            //-3왜 해주냐면 약간의 오차가 있어서!
             if (스크롤양 + 박스높이 > 실제높이 - 3) {
                 alert('약관을 모두 읽으셨습니다.')
             } /* else {
                 alert('약관을 모두 읽으세요.')
             } */
         })
+
+        //현재 페이지 끝까지 스크롤 체크는?
+        //페이지 로드완료시 실행해야 정확하기 때문에 body태그 끝나기 전에 넣는게 좋음.
+        document.querySelector('html').scrollHeight // html의 높이
+        document.querySelector('html').clientHeight // 페이지 보이는 부분 높이
+        window.scrollY // = document.querySelector('html').scrollTop
+        
+
+
+    
         
 
     </script>
