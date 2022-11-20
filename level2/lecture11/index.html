@@ -92,4 +92,24 @@
     
     
     이벤트 버블링 해결법
+    e.stopPropagation();
+
+    참고1
+    e.currentTarget 출력하면 검은 배경나오므로 e.target == e.currentTarget 써도됨
+    e.target == this 써도됨
+
+    참고2
+    jQuery 셀렉터로 찾은 결과와 querySelector 셀렉터로 찾은 결과는 다름
+    출력해보면 전자는 이상한 object 이런게 나오고 후자는 <html>이런게 나옴
+    그래서 e.target == $('.black-bg')는 사용 불가능함.
+    그리고 애초에 jQuery셀렉터 끼리 등호비교는 불가능함.
+
+    $('.black-bg').is($('.black-bg')) 이런 비교용 함수 쓰든가
+    $(e.target).is($('.black-bg'))이런거 쓰면 됨.
+
+    오늘 배운거
+    1. 이벤트 버블링 항상 일어남
+    2. 이벤트 관련 기능들 사용가능
+
+
 -->

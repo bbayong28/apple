@@ -4,8 +4,16 @@ document.querySelector('.navbar-toggler').addEventListener('click', function () 
 
 document.querySelector('.black-bg').addEventListener('click', function (e) {
 
-    //console.log(e.target)
-    //console.log(document.querySelector('.black-bg'))
+    //참고1
+    //e.currentTarget 출력하면 검은 배경나오므로 e.target == e.currentTarget 써도됨
+    //e.target == this 써도됨
+    //참고2
+    //jQuery 셀렉터로 찾은 결과와 querySelector 셀렉터로 찾은 결과는 다름
+    //출력해보면 전자는 이상한 object 이런게 나오고 후자는 <html>이런게 나옴
+    //그래서 e.target == $('.black-bg')는 사용 불가능함.
+    //그리고 애초에 jQuery셀렉터 끼리 등호비교는 불가능함.
+    //$('.black-bg').is($('.black-bg')) 이런 비교용 함수 쓰든가
+    //$(e.target).is($('.black-bg'))이런거 쓰면 됨.
 
     if (e.target == document.querySelector('.black-bg')) { 
         document.querySelector('.black-bg').classList.remove('show-modal');
@@ -13,15 +21,6 @@ document.querySelector('.black-bg').addEventListener('click', function (e) {
     
 })
 
-//document.querySelector('.black-bg').addEventListener('click', function (e) { 
-//    
-//    e.target  //유저가 실제로 누른 것.
-//    e.currentTarget  //이벤트리스너가  달린 곳 (=this)
-//    e.preventDefault();  //이벤트의 기본동작 막기    'click'해도 안된것처럼, 'click'대신 'submit' 적고 이거 적으면 전송눌러도 전송 안된것처럼됨
-//    e.stopPropagation();  //내 상위요소로 이벤트 버블링 막아줌
-//
-//    document.querySelector('.black-bg').classList.remove('show-modal')
-//})
 
 $('#login').on('click', function () {
     $('.black-bg').addClass('show-modal')
