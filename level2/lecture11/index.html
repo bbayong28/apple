@@ -71,4 +71,25 @@
 </html>
 <!-- 
     DAY 11
+
+    검은배경 누르면 모달창 닫는 기능 만들기
+    
+    **이벤트 버블링
+    모든 브라우저는 이벤트 버블링이 일어남 -> 이벤트가 상위 html로 퍼지는 현상(종이를 여러장 겹쳐놓고 누르면 제일 위에 종이를 세게 누르면 압력이 제일 아래종이까지 전해지는것과 비슷하다  생각하면 됨)
+    white-bg을 누르면 white-bg도 누르고 black-bg도 눌러서 클릭이 2번 된 것처럼 됨
+    h4를 누르면 h4도 누르고 white-bg도 누르고 black-bg도 눌러서 클릭이 3번 된 것처럼 됨
+
+    유용한 이벤트관련 함수들
+    document.querySelector('.black-bg').addEventListener('click', function (e) { 
+        
+        e.target  //유저가 실제로 누른 것.
+        e.currentTarget  //이벤트리스너가  달린 곳 (=this)
+        e.preventDefault();  //이벤트의 기본동작 막기    'click'해도 안된것처럼, 'click'대신 'submit' 적고 이거 적으면 전송눌러도 전송 안된것처럼됨
+        e.stopPropagation();  //내 상위요소로 이벤트 버블링 막아줌
+
+        document.querySelector('.black-bg').classList.remove('show-modal')
+    })
+    
+    
+    이벤트 버블링 해결법
 -->
