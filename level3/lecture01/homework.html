@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./main.css">    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script defer src="./main.js"></script>
+
 </head>
 
 <body>
@@ -43,49 +43,37 @@
     </div>
 
 
+
+
+    
+    <script>
+        function 탭열기(구멍) {
+            $('.tab-button').removeClass('orange');
+            $('.tab-button').eq(구멍).addClass('orange');
+            $('.tab-content').removeClass('show');
+            $('.tab-content').eq(구멍).addClass('show');
+        };
+        //몰래 심어놓은 데이터로 위의 반복되는 코딩 축약하기
+        $('.list').click(function (e) {
+            탭열기(e.target.dataset.id)
+        });
+
+        var car2 = { name: '소나타', price: 50000, color: 'white' }
+
+        document.querySelector('.car_name').innerHTML = car2.name
+        document.querySelector('.car_price').innerHTML = car2.price
+
+
+
+
+    </script>
+
 </body>
 
 </html>
 <!-- 
-    DAY 1
-    array 자료형 (array쓰면 여러자료를 변수 하나에 저장가능)
-    [자료1, 자료2, 자료3......]
-    var car = '소나타';
-    var price = 50000;
-    var color = 'white';    
-    => var car = ['소나타', 50000, 'white']
-
-    object자료형
-    - key : value 형태로 저장가능한게 장점
-    var car2 = {name :'소나타', price : 50000, color : 'white'}에서
-    key 부분을 실제 자료라고 오해하는데 실제 object에 저장된 자료들은 value 값(소나타, 50000, white)임!
-    key : name, price, color
-    value : 소나타, 50000, white
     
-    array 자료형
-    var car = ['소나타', 50000, 'white']
-    console.log(car[0])
-    car[0] = '벤츠' // 배열 수정
-    car[3] = '벤츠' // 배열 추가
-
-    object자료형
-    var car2 = {name :'소나타', price : 50000, color : 'white'}
-    console.log(car2['name'])
-    console.log(car2.name)
-    car2.name = '벤츠' // 배열 수정    
-    car2.tire = 4 // 배열 추가
-
-    array 자료형와 object자료형의 차이점
-    array 자료형
-    - 자료간 순서가 존재함
-    - 순서가 존재하므로 자료간 정렬도 가능함.(car.sort(); console.log(car);)
-    - 순서가 존재하므로 중간에 자르기도 가능.(car.slice(1, 3) console.log(car.slice(1, 3)))
-    - 자료검색도 가능
-    - 맨앞, 맨뒤에 자료추가 가능
-    - array에 붙일 수 있는 기본함수들 개많음( concat() copyWithin() entries() fill() filter() find() findIndex() forEach() from() includes() indexOf().....)
+    오늘의 숙제
+    자바스크립트 써서 car2에 있던 데이터들 html에 꽂아서 보여주기
     
-    object자료형
-    - 자료간 순서개념 없음(인덱싱 같은거 안됨 car2[2]이런거 안됨)
-    - 많은 자료 있을 때 (소나타, 50000원, 흰색, 에어컨추가, 카드할인여부....) array보단 object를 씀
-
 -->
