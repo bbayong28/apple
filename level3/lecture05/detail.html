@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>약간 복잡한 Array & Object 데이터바인딩</title>
+    <title>Select 2 : 자바스크립트로 html 생성하는 법</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./main.css">    
@@ -15,6 +15,30 @@
 </head>
 
 <body>
+
+
+    <div class="container mt-3">
+        <div class="card p-3">
+            <span class="car-title">상품명</span>
+            <span class="car-price">가격</span>
+        </div>
+    </div>
+    
+    <form class="container my-5 form-group">
+        <p>상품선택</p>
+        <select class="form-select mt-2">
+            <option>상품분류</option>
+            <option>모자</option>
+            <option>셔츠</option>
+        </select>
+        <select class="form-select mt-2 form-hide">
+            <option>사이즈</option>
+            <option>90</option>
+            <option>95</option>
+            <option>100</option>
+        </select>
+    </form>
+
     <div class="container mt-5">
         <ul class="list">
             <!-- 탭메뉴 클릭시 표시나게 하기위해 orange라는 클래스명 붙게! -->
@@ -23,7 +47,6 @@
             <li class="tab-button" data-id="2">Shipping</li>
         </ul>
         
-        <!-- 클릭하면 보여줄 div 박스만 show라는 클래스명 붙게! -->
         <div class="tab-content">
             <p>상품설명입니다. Product</p>
         </div>
@@ -35,18 +58,10 @@
         </div>
     </div>
 
-    <div class="container mt-3">
-        <div class="card p-3">
-            <span class="car-title">상품명</span>
-            <span class="car-price">가격</span>
-        </div>
-    </div>
-
 
 </body>
 
 </html>
 <!-- 
-    DAY 03
-
+    DAY 05
 -->
