@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select 2 : 자바스크립트로 html 생성하는 법</title>
+    <title>Select 3 : forEach, for in 반복문 </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./main.css">    
@@ -33,7 +33,7 @@
             <option>바지</option>
         </select>
         <select class="form-select mt-2 form-hide">
-            <option>사이즈</option>
+            <option>사이즈를 선택하세요.</option>
             <option>90</option>
             <option>95</option>
             <option>100</option>
@@ -68,55 +68,19 @@
 
 </html>
 <!-- 
-    DAY 05
-    <select class="form-select mt-2 form-hide">
-        <option>사이즈</option>
-        <option>90</option>
-        <option>95</option>
-        <option>100</option>
-    </select>
-    이걸 미리 숨겨놨다가 보여주는 식으로 하면 확장성이 부족하다
-    그래서 자바스크립트로 html을 생성하는 법을 알아보자!
+    DAY 06
 
-    //insertAdjacentHTML => est라는 아이디를 가진 요소 안에 추가해 달라는 뜻
-    //beforeend => 안쪽 맨 밑
-    // 문자형 HTML을 넣어주는 함수
-    //insertAdjacentHTML(js), append(jquery)만약 test라는 요소안에 다른 html요소가 있으면 하단에 추가해줌
+    데이터를 받아서 그 갯수만큼 option 만들어 줘야할 때
 
-    //js
-    document.querySelector('#test').insertAdjacentHTML('beforeend', 템플릿)
-    기존요소에 추가말고 갈아치우고 싶을 때 html 쓰기
-    document.querySelector('#test').innerHTML = 템플릿;
+    for (var i = 0; i < pants.length; i++) {
+            //option태그 생성해주세요~
+    }
+    라고 하면 되는데 for문은 코드가 길고 복잡해보임
+    그래서 간단히 할건데 그건 forEach 반복문이 해줄거임
+    forEach 반복문 => array 자료에만 붙일 수 있는 반복문
+    성능을 따졌을 때 for 반복문이 훨씬 더 빠르게 동작함 하지만 큰 차이는 없음
 
-    //jquery
-    $('#test').append(템플릿);
-    기존요소에 추가말고 갈아치우고 싶을 때 html 쓰기
-    $('#test').html(템플릿);
-
-    생성법1이 2배정도 더 빠르나 지금은 그런것들을 무시할 수 잇을 정도의 컴퓨터 성능이 많기때문에 0.00000몇초 차이라 실은 별 차이가 없어짐 그래서 아무거나 쓰면 됨.
-    생성법1
-    .createElement()
-    생성법2
-    .insertAdjacentHTML()
-    .append()
-
-
-    createElement,  insertAdjacentHTML, appendChild, innerHTML 예시
-    var a = document.createElement('p');
-    a.innerHTML = '안녕';
-    //a.classList.add('make');
-    //test라는 아이디를 가진 요소 안에 a를 만듦.
-    //만약 test라는 요소안에 다른 html요소가 있으면 하단에 추가해줌
-    document.querySelector('#test').appendChild(a);
-
-    var 템플릿 = '<p>안녕</p>';
-    //js
-    document.querySelector('#test').insertAdjacentHTML('beforeend', 템플릿);
-    document.querySelector('#test').innerHTML = 템플릿;
-    //jquery
-    $('#test').append(템플릿);
-    $('#test').html(템플릿);
-
+    
 
 
 
