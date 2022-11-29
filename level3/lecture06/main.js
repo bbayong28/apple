@@ -31,7 +31,7 @@ $('.form-select').eq(0).on('input', function () {
 
     if (value == '셔츠') {
         $('.form-select').eq(1).removeClass('form-hide')
-    } else if (value == '바지') {        
+    } else if (value == '바지') {
         $('.form-select').eq(1).removeClass('form-hide');
         $('.form-select').eq(1).html('');
         var pantsSize = `
@@ -58,15 +58,15 @@ $('.form-select').eq(0).on('input', function () {
         shirt.forEach(function (shirtsdata) {
             $('.form-select').eq(1).append(`<option>${shirtsdata}</option>`)
         });
-    } else if (value == '바지') {        
+    } else if (value == '바지') {
         $('.form-select').eq(1).removeClass('form-hide');
         $('.form-select').eq(1).html('');
         //서버에서 데이터 가져와서 그거 갯수만큼 <option> 만들기
-        
+
         //for (var i = 0; i < pants.length; i++) {
         //    //option태그 생성해주세요~
         //} 라고하면 길고 복잡
-        
+
         //forEach반복문 => array 자료에만 붙일 수 있는 반복문
         //a => array안에 있던 데이터들임.
         //forEach 안에 파라미터 2개 생성 가능
@@ -83,6 +83,18 @@ $('.form-select').eq(0).on('input', function () {
             //console.log(1234) // 바지 선택하면 3번 반복됨
             $('.form-select').eq(1).append(`<option>${pantsdata}</option>`)
         });
+        //arrow function 문법
+        pants.forEach((pantsdata) => {
+            $('.form-select').eq(1).append(`<option>${pantsdata}</option>`)
+        });
     }
 });
 //바지를 눌렀다가 셔츠를 누르면 이상해짐 (알아서 해결)
+
+//object 자료도 갯수만큼 반복문 돌릴 수 있음
+var obj = { name: 'kim', age: '20' }
+for (var key in obj) {
+    //console.log(1);
+    //console.log(key); // name, age
+    console.log(obj[key]); // kim, age
+}
