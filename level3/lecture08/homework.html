@@ -17,11 +17,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <!-- <div class="col-sm-4">
                 <img src="https://via.placeholder.com/600" class="w-100">
                 <h5>Card title</h5>
                 <p>가격 : 7000</p>
-            </div> 
+            </div>  -->
         </div>
     </div>
 
@@ -36,6 +36,9 @@
             { id: 1, price: 50000, title: 'Springfield Shirt' },
             { id: 2, price: 60000, title: 'Black Monastery' }
         ];
+
+        $('.row').eq(0).append('<div class="col-sm-4">')
+        $('.col-sm-4').eq(0).append('<img>')
     </script>
 
 </body>
@@ -43,5 +46,6 @@
 <!-- 
     오늘의 숙제
     상품목록 3개 만들어오기
+    (자바스크립트로 html생성하기)
 
 -->
