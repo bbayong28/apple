@@ -1,0 +1,50 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+/* window.scrollTo(x, y)하면 x,y 좌표로 강제로 이동하는데 부트스트랩 쓰고있어서 스무스하게 이동함
+그게 싫으면 :root{scroll-behavior:auto;} 써주면 됨.*/
+
+ul.list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+ul.list::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.tab-button{
+  display: block;
+  padding: 10px 20px;
+  float: left;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.orange{
+  border-top: 2px solid orange;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #ccc;
+  color: #000;
+  margin-top: -2px;
+}
+
+.tab-content{
+  display: none;
+  padding: 10px;
+}
+
+.show{
+  display: block;
+}
+
+
+
