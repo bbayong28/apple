@@ -1,7 +1,7 @@
 var products = [
-    { id: 0, price: 70000, title: 'Blossom Dress' },
-    { id: 1, price: 50000, title: 'Springfield Shirt' },
-    { id: 2, price: 60000, title: 'Black Monastery' }
+  { id: 0, price: 70000, title: 'Blossom Dress' },
+  { id: 1, price: 50000, title: 'Springfield Shirt' },
+  { id: 2, price: 60000, title: 'Black Monastery' }
 ];
 
 //내가 한 방법
@@ -53,30 +53,30 @@ var products = [
 
 //위랑 같음
 products.forEach((asssss, i) => {
-    var 템플릿 =
-        `<div class="col-sm-4">
+  var 템플릿 =
+    `<div class="col-sm-4">
             <img src="https://via.placeholder.com/600" class="w-100">
             <h5>${asssss.title}</h5>
             <p>가격 : ${asssss.price}</p>
         </div>`;
-    $('.row').append(템플릿);
+  $('.row').append(템플릿);
 })
 
 
 //더보기 버튼 누르면 상품 3개 가져와서 출력하기
 //https://codingapple1.github.io/js/more1.json get요청하면 상품3개 더 줌
 $('#more').on('click', function () {
-    $.get('https://codingapple1.github.io/js/more1.json').done(function (data) {
-        //console.log(data);
+  $.get('https://codingapple1.github.io/js/more1.json').done(function (data) {
+    //console.log(data);
 
-        data.forEach((a, i) => {
-            var 템플릿 =
-                `<div class="col-sm-4">
+    data.forEach((a, i) => {
+      var 템플릿 =
+        `<div class="col-sm-4">
                     <img src="https://via.placeholder.com/600" class="w-100">
                     <h5>${data[i].title}</h5>
                     <p>가격 : ${data[i].price}</p>
                 </div>`;
-            $('.row').append(템플릿);
-        })
+      $('.row').append(템플릿);
     })
+  })
 })
