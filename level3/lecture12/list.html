@@ -31,8 +31,20 @@
 
 
     <div class="container">
-        <button id='price' class="btn btn-danger">가격순 정렬</button>
+        <button id='downprice' class="btn btn-danger">가격 낮은순 정렬</button>
+        <button id='upprice' class="btn btn-danger">가격 높은순 정렬</button>
     </div>
+
+    <div class="container">
+        <button id='downname' class="btn btn-danger">상품명 정렬(ㄱ-ㅎ)</button>
+        <button id='upname' class="btn btn-danger">상품명 정렬(ㅎ-ㄱ)</button>
+    </div>
+
+    <div class="container">
+        <button id='downlimit' class="btn btn-danger">6만원이하 상품</button>
+        <button id='uplimit' class="btn btn-danger">6만원이상 상품</button>
+    </div>
+
     <div class="container">
         <button id='more' class="btn btn-danger">더보기</button>
     </div>
@@ -48,5 +60,26 @@
 
 <!-- 
     DAY 12
+
+    구매버튼 만듦.
+    구매버튼누르면 장바구니에 상품명 추가?
+    - 실제서비스면 서버로 보냈을듯
+
+    이렇게 하면 새로고침하면 다시 초기값으로 변함
+    var 변수 = 0;
+    브라우저 안에 몰래 데이터 저장 가능 => localstorage
+    개발자도구 열어서 Application -> Local Storage
+    Local Storage, Session Storage => 이름 : 값 형태로 저장가능(key, valueg 형태로 저장)
+    IndexedDB => 구조화된 대용량 데이터 저장 시
+    Cookies => 보통 로그인 정보 저장
+    Cache Storage => html, css, js 파일 저장하는 곳\
+
+
+
+    3분16초
+
+
+
+
 
 -->
