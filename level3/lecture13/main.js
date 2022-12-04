@@ -221,11 +221,28 @@ console.log(JSON.parse(꺼낸거))// [1,2,3]
 $('.buy').on('click', function (e) {
     //$(e.target).siblings('h5').html();
     var title = $(e.target).siblings('h5').text();
-    //JSON.stringify([title])
-    localStorage.setItem('cart', JSON.stringify([title]));
 
-    var 꺼낸거 = localStorage.getItem('cart')
-    console.log(JSON.parse(꺼낸거))
+    // 이미 cart라는 항목이 있으면 수정하기 근데 그게 아니면 추가해주세요
+    //if(cart라는 항목이 있으면){수정하기해주세요}else{추가해주세요}
+
+    //이미 cart 항목이 있는지 판단하려면?  => console창에 localStorage.getItem('cart')쳐 보면 됨. 있으면 항목 뜨고 없으면 null 뜸
+    //localStorage.getItem('cart') = localStorage.cart
+    if (localStorage.getItem('cart') != null) {
+        //수정하는 법 => localStorage에 있던 array 1. 꺼내서 2. 자료 추가하고 3. 다시 넣기
+        //var 꺼낸거 = localStorage.getItem('cart')
+        var 꺼낸거 = JSON.parse(localStorage.cart);
+        //console.log((꺼낸거))
+        꺼낸거.push(title);
+        //console.log(꺼낸거);
+        localStorage.setItem('cart', JSON.stringify(꺼낸거));
+    } else {
+        //JSON.stringify([title])
+        localStorage.setItem('cart', JSON.stringify([title]));
+    }
+
+
 
 
 });
+
+//이미 cart 항목 있으면 array를 수정해 주세요~
