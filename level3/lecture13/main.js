@@ -19,10 +19,11 @@ $('#downprice').on('click', function () {
     products.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${asssss.title}</h5>
-                        <p>가격 : ${asssss.price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${asssss.title}</h5>
+                <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     });
 });
@@ -38,10 +39,11 @@ $('#upprice').on('click', function () {
     products.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${asssss.title}</h5>
-                        <p>가격 : ${asssss.price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${asssss.title}</h5>
+                <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     });
 });
@@ -62,10 +64,11 @@ $('#downname').on('click', function () {
     products.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${asssss.title}</h5>
-                        <p>가격 : ${asssss.price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${asssss.title}</h5>
+                <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     });
 });
@@ -86,10 +89,11 @@ $('#upname').on('click', function () {
     products.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${asssss.title}</h5>
-                        <p>가격 : ${asssss.price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${asssss.title}</h5>
+                <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     });
 });
@@ -117,10 +121,11 @@ $('#downlimit').on('click', function () {
     newlimit.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${newlimit[i].title}</h5>
-                        <p>가격 : ${newlimit[i].price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${newlimit[i].title}</h5>
+                <p>가격 : ${newlimit[i].price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     })
 });
@@ -139,88 +144,11 @@ $('#uplimit').on('click', function () {
                 <img src="https://via.placeholder.com/600" class="w-100">
                 <h5>${asssss.title}</h5>
                 <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
             </div>`;
         $('.row').append(템플릿);
     })
 });
-
-
-
-//products.sort(((a, b) => a.price - b.price));
-
-
-////간단한 array 자료 정렬하는 법
-//var 숫자배열 = [7, 3, 5, 2, 40];
-//var 문자배열 = ['a', 'c', 'b']
-////sort() 함수는 문자정렬
-//숫자배열.sort();
-////console.log(숫자배열)// 2,3,40,5,7 로 정렬함
-////숫자 오름차순 정렬 
-//// 1. a, b는 array안의 자료임
-//// 2. return 오른쪽이 양수면 a를 오른쪽으로
-//// 3. return 오른쪽이 음수면 a를 왼쪽으로
-//숫자배열.sort(function (a, b) {
-//    return a - b
-//});
-////console.log(숫자배열)// 2,3,5,7,40 로 정렬함
-//
-////숫자 내림차순 정렬 
-//숫자배열.sort(function (a, b) {
-//    return b - a
-//});
-////console.log(숫자배열)// 40,7,5,3,2 로 정렬함
-//
-//
-//var 어레이 = ['가', '다', '나'];
-//return되는게 양수다 -> a 우측으로감
-//return되는게 음수다 -> b 우측으로감
-//'가', '다' 일 경우 return 양수
-//'다', '나' 일 경우 return 음수
-////문자 가나다 순 정렬하기
-// 문자배열.sort();
-//console.log(문자배열)
-//
-////문자 다나가 순 정렬
-//문자배열.sort(function (a, b) {
-//    if (a > b) {
-//        return -1
-//    } else if (a < b) {
-//        return 1
-//    } else {
-//        return 0
-//    }
-//});
-//console.log(문자배열)
-//
-////문자 다나가 순 정렬
-//문자배열.reverse();
-//console.log(문자배열);
-
-
-var arr = [7, 3, 5, 2, 40];
-
-//array  자료 원하는 것만 필터하려면 .filter() 함수
-//파라미터 a는 arr에 있는 각각의 자료들
-//원본자료는 손대지 않고 새로운 배열로 만들기 때문에 새 정의 해줘야 함.
-//sort()는 옛날 문법, 원본변형 O
-//filter()는 원본변형 X
-// map() array 자료 전부 변형.
-
-var newarr = arr.filter(function (a) {
-    return a < 4
-})
-console.log(newarr)// [3, 2]
-
-
-var newarr = arr.map(function (a) {
-    return a * 4
-})
-console.log(newarr)// [28, 12, 20, 8, 160]
-
-
-
-//브라우저 안에 몰래 데이터 저장 가능
-//
 
 
 products.forEach((asssss, i) => {
@@ -248,9 +176,11 @@ $('#more').on('click', function () {
                 </div>`;
             $('.row').append(템플릿);
         });
-        //localStorage.setItem('이름', 'kim');
     });
 });
+
+
+
 //localStorage 저장 법
 localStorage.setItem('이름', 'kim');
 //localStorage 출력 법
@@ -275,3 +205,27 @@ console.log(JSON.parse(꺼낸거))// [1,2,3]
 //console.log(JSON.parse(꺼낸거)[0])// 1
 //console.log(JSON.parse(꺼낸거)[1])// 2
 //console.log(JSON.parse(꺼낸거)[2])// 3
+
+
+
+// 1. 구매버튼 누르면
+// 2. 지금누른버튼 윗윗 글자를 가져와서
+// 3. localStorage에[글자] 저장
+
+//js
+// document.querySelectorAll('.buy')[0].addEventListener('click', function (e) {
+//     e.target.previousElementSibling.previousElementSibling
+// })
+
+//jquery
+$('.buy').on('click', function (e) {
+    //$(e.target).siblings('h5').html();
+    var title = $(e.target).siblings('h5').text();
+    //JSON.stringify([title])
+    localStorage.setItem('cart', JSON.stringify([title]));
+
+    var 꺼낸거 = localStorage.getItem('cart')
+    console.log(JSON.parse(꺼낸거))
+
+
+});

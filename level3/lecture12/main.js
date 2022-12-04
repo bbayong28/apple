@@ -19,10 +19,11 @@ $('#downprice').on('click', function () {
     products.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${asssss.title}</h5>
-                        <p>가격 : ${asssss.price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${asssss.title}</h5>
+                <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     });
 });
@@ -38,10 +39,11 @@ $('#upprice').on('click', function () {
     products.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${asssss.title}</h5>
-                        <p>가격 : ${asssss.price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${asssss.title}</h5>
+                <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     });
 });
@@ -62,10 +64,11 @@ $('#downname').on('click', function () {
     products.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${asssss.title}</h5>
-                        <p>가격 : ${asssss.price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${asssss.title}</h5>
+                <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     });
 });
@@ -86,10 +89,11 @@ $('#upname').on('click', function () {
     products.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${asssss.title}</h5>
-                        <p>가격 : ${asssss.price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${asssss.title}</h5>
+                <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     });
 });
@@ -117,10 +121,11 @@ $('#downlimit').on('click', function () {
     newlimit.forEach((asssss, i) => {
         var 템플릿 =
             `<div class="col-sm-4">
-                        <img src="https://via.placeholder.com/600" class="w-100">
-                        <h5>${newlimit[i].title}</h5>
-                        <p>가격 : ${newlimit[i].price}</p>
-                    </div>`;
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${newlimit[i].title}</h5>
+                <p>가격 : ${newlimit[i].price}</p>
+                <button class="buy">구매</button>
+            </div>`;
         $('.row').append(템플릿);
     })
 });
@@ -139,11 +144,11 @@ $('#uplimit').on('click', function () {
                 <img src="https://via.placeholder.com/600" class="w-100">
                 <h5>${asssss.title}</h5>
                 <p>가격 : ${asssss.price}</p>
+                <button class="buy">구매</button>
             </div>`;
         $('.row').append(템플릿);
     })
 });
-
 
 
 //products.sort(((a, b) => a.price - b.price));
@@ -220,8 +225,6 @@ console.log(newarr)// [28, 12, 20, 8, 160]
 
 
 //브라우저 안에 몰래 데이터 저장 가능
-//
-
 
 products.forEach((asssss, i) => {
     var 템플릿 =
@@ -248,9 +251,9 @@ $('#more').on('click', function () {
                 </div>`;
             $('.row').append(템플릿);
         });
-        //localStorage.setItem('이름', 'kim');
     });
 });
+
 //localStorage 저장 법
 localStorage.setItem('이름', 'kim');
 //localStorage 출력 법
