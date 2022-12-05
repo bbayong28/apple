@@ -63,25 +63,23 @@
 
     구매버튼 만듦.
     구매버튼누르면 장바구니에 상품명 추가?
-    - 실제서비스면 서버로 보냈을듯
+    - 실제서비스면 서버로 보냈을듯(구매버튼 누르면 내정보랑 내가 누른상품정ㅂ를 서버로 전송해서 데이터배이스에 영구적으로 저장.)
 
-    이렇게 하면 새로고침하면 다시 초기값으로 변함
-    var 변수 = 0;
-    브라우저 안에 몰래 데이터 저장 가능 => localstorage
+    var 변수 = 0; => 변수의 단점 : 새로고침하면 다시 초기값으로 변함
+    브라우저 안에 몰래 데이터 (반영구적)저장 가능 => localstorage
     개발자도구 열어서 Application -> Local Storage
-    Local Storage, Session Storage => 이름 : 값 형태로 저장가능(key, valueg 형태로 저장), 용량은 5MB(문자 5MB면 어마어마한 양), 문자 / 숫자만 저장가능(array나 object 못 넣음)
-    IndexedDB => 구조화된 대용량 데이터 저장 시
-    Cookies => 보통 로그인 정보 저장
+    
+    Local Storage, Session Storage => 이름 : 값 형태로 저장가능(key, valueg 형태로 저장), 용량은 5MB(문자 5MB면 어마어마한 양), 문자 / 숫자만 저장가능(array나 object 못 넣음 => 넣고 싶으면 강제로 문자나 숫자로 바꿔줌)
+    - Local Storage 사이트 재 접속해도 유지
+    - Session Storage 사이트 나가면 자동 삭제(휘발성 O)
+    IndexedDB => 구조화가 필요한 대용량 데이터 저장 시
+    Cookies => 보통 로그인 정보 저장(유저의 인증 정보)
     Cache Storage => html, css, js 파일 저장하는 곳
 
 
-    Local Storage 사이트 재 접속해도 유지
-    Session Storage 사이트 나가면 자동 삭제
-
-    localStorage 저장하는 법 => localStorage.setItem();
+    localStorage 저장하는 법 => localStorage.setItem('이름', '값');
     localStorage 출력하는 법 => localStorage.getItem();
     localStorage 삭제하는 법 => localStorage.removeItem();
-    localStorage 출력하는 법 => localStorage.getItem();
 
     array/object -> JSON => JSOM.stringify();    
     JSON -> array/object => JSOM.parse();// console.log(JSON.parse(꺼낸거)[0])// 1 배열형태로 꺼내기 쉬움
@@ -92,7 +90,7 @@
     sessionStorage 삭제하는 법 => sessionStorage.removeItem();
     sessionStorage 출력하는 법 => sessionStorage.getItem();
 
-    localStorage 수정하고 싶을 때
+    localStorage 수정(추가)하고 싶을 때
     var arr = [1, 2, 3]에 4를 추가하고 싶으면? 안타깝게도 localStorage에 있는 항목을 수정해주세요 같은 문법같은건 업ㅇㅅ음
     수정하는 법
     1. 자료꺼내기
