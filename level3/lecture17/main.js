@@ -154,6 +154,72 @@ $('.slide-box').eq(0).on('mouseup', function (e) {
   //}
 
 
+  //이동거리 => e.clientX - 시작좌표
+  //console.log(e.clientX - 시작좌표);
+  //css 로 2번째사진, 1번째사진으로 보낼 수 있음. => .css('transform', 'translateX(-100vw),.css('transform', 'translateX(0vw)
+  //transition으로 부드럽게 보내고 싶어서 넣음 => .css('transition', 'all 0.5s')
+  //transition 계속 넣어두면 이상해짐(첫번째잘되고 그 후로 이동시나 뭐든 0.5초로 해주기 때문!)
+  if (e.clientX - 시작좌표 < -100) {
+    $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(-100vw)');
+  } else {
+    $('.slide-container').css('transition', 'all 0.5s').css('transform', 'translateX(0vw)');
+  }
+  //이동이 끝났으면 transition 없애주기 그럼 이상한거 없어짐. 근데 바로없애면 스무스 하지 않아서 0.5초 뒤에 없애주라고 적어주기!
+  setTimeout(() => {
+    $('.slide-container').css('transition', 'none')
+  }, 500)
+
+
+  //여기까지 완성 
+  //근데 마우스로는 가능한데 이게 모바일이라면 터치로 할텐데 그럼 잘 작동하지 않음.
+  //mousedown -> touchstart(터치시작시 발동)
+  //mousemove -> touchmove(터치중일시 발동)
+  //mouseup -> touchend(터치종료시 발동)
+
+  $('.slide-box').eq(0).on('touchstart', function (e) {
+    //터치이벤트에서 X좌표 출력하려면 => e.touches[0].clientX;
+    시작좌표 = e.touches[0].clientX;
+    눌렀냐 = true;
+  });
+
+  $('.slide-box').eq(0).on('touchmove', function (e) {
+    if (눌렀냐 == true) {
+      $('.slide-container').css('transform', `translateX(${e.touches[0].clientX - 시작좌표}px)`);
+    }
+  });
+  $('.slide-box').eq(0).on('touchend', function (e) {
+    눌렀냐 = false;
+    //touchend이벤트에서 X좌표 출력할 때 => e.changedTouches[0].clientX
+    if (e.changedTouches[0].clientX - 시작좌표 < -100) {
+      $('.slide-container')
+        .css('transition', 'all 0.5s')
+        .css('transform', 'translateX(-100vw)');
+    } else {
+      $('.slide-container')
+        .css('transition', 'all 0.5s')
+        .css('transform', 'translateX(0vw)');
+    }
+    setTimeout(() => {
+      $('.slide-container').css('transition', 'none')
+    }, 500)
+  });
+
+  //결론 : 터치, 마우스입력 이벤트리스너로 여러가지 기능 만들 수 있음
+
+
+  //(응용1)나머지 이미지들 기능개발?
+  //(응용2)첫번째 이미지는 우측으로 스와이프 못하게
+  //(웅용3)코드따라치기만 했으면 다 지우고 1주 후에 다시 만들어보기.
+
+  //한글로 기능설명부터하고
+  //작은기능부터 만들어 나감
+
+
+
+
+
+
+
 
 
 });

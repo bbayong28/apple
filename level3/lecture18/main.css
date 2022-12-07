@@ -1,0 +1,93 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+/* window.scrollTo(x, y)하면 x,y 좌표로 강제로 이동하는데 부트스트랩 쓰고있어서 스무스하게 이동함
+그게 싫으면 :root{scroll-behavior:auto;} 써주면 됨. */
+
+:root{
+  scroll-behavior: auto;
+}
+.ingBar{
+  position: fixed;
+  width: 100%;
+  z-index: 6;
+  height: 3px;
+  background: #000;
+  transition:  all 1s;
+}
+.list-group{
+    display: none;
+}
+.show{
+    display: block;
+}
+.dark{
+  background: #000;
+  color: #fff;
+}
+.navbar{
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+.navbar-brand{
+  font-size: 25px;
+  transition: all 1s;
+}
+
+
+.black-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  padding: 30px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.white-bg {
+  background: white;
+  border-radius: 5px;
+  padding: 30px;
+} 
+
+.main-bg{
+  padding: 100px 20px;
+  background: #d1d1d1;
+}
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+.badge{
+  cursor: pointer;
+}
+
+.slider{
+  overflow: hidden;
+}
+
+/* 그림 세개 가로로 나열하려면 width가 1개당 100vw니까 곱하기 3 해서 300vw */
+.slide-container{
+  width: 300vw;
+  /* transition : all 1s */
+  
+  /* margin-left: -100vw; 2번째 사진이 메인에 옴 */
+  /* margin-left: -200vw; 3번째 사진이 메인에 옴 */
+  /* transition: all 1s; */
+  /* transform: translateX(-100vw); margin-left 보다 성능적인 이점이 있고 부드러움 */
+}
+/* 그림 개당 width 100vw, 가로로 나열 */
+.slide-box{
+  width: 100vw;
+  float: left;
+}
+/* 이미지 크기에 맞추기 */
+.slide-box img{
+  width: 100%;
+}
