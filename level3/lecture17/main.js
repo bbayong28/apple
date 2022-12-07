@@ -124,37 +124,9 @@ function Q2(a, b) {
   }
   return parseFloat(result.toFixed(2));
 }
-
-
-// 알아야 할 이벤트 mousedown, mouseup, mousemove
-
-//마우스 X위치 알려줌
-//$('.slide-box').eq(0).on('mousemove', function (e) {
-//  console.log(e.clientX);
-//});
-
-
-//전역변수 (아무데서나 쓸 수 있는 변수)
+//전역변수 
 var 시작좌표 = 0;
 var 눌렀냐 = false;
-
-//img 아무데나 찍고 마우스move하면 왼쪽으로(양수) 얼마나, 오른쪽으로(음수) 얼마나 이동한지 알려줌.
-//$('.slide-box').eq(0).on('mousedown', function (e) {
-//  시작좌표 = e.clientX;
-//});
-//$('.slide-box').eq(0).on('mousemove', function (e) {
-//  console.log(시작좌표 - e.clientX);
-//});
-
-
-//img 아무데나 찍고 마우스move하면 왼쪽으로(음수) 얼마나, 오른쪽으로(양수) 얼마나 이동한지 알려줌.
-//$('.slide-box').eq(0).on('mousedown', function (e) {
-//  시작좌표 = e.clientX;
-//});
-//$('.slide-box').eq(0).on('mousemove', function (e) {
-//  console.log(e.clientX - 시작좌표);
-//});
-
 
 $('.slide-box').eq(0).on('mousedown', function (e) {
   시작좌표 = e.clientX;
@@ -173,15 +145,17 @@ $('.slide-box').eq(0).on('mousemove', function (e) {
 //손을 놓을 때 100px 이상 이동했으면 둘째사진 보임 아니면 첫째사진 보임.(2번째 사진이 보일 때 서서히 보이게 => transition 사용하기)
 $('.slide-box').eq(0).on('mouseup', function (e) {
   눌렀냐 = false;
+
+  //이렇게 짜면 될거 같음.
+  //if (이동거리 100이상) {
+  //    2번사진 보여주셈
+  //}else {
+  //  1번사진 보여주셈
+  //}
+
+
+
+
 });
-
-
-
-
-
-
-
-
-
 
 
