@@ -6,98 +6,85 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>(실전) 웹개발 기능대회 예제</title>
-  <link rel="stylesheet" href="./practice_quiz.css">
+  <link rel="stylesheet" href="./selfffff.css">
 </head>
 
 <body>
   <div class="Wrap">
-    <div class="page">
-      <header id="header">
-        <h1>집꾸미기</h1>
-        <ul class="menu">
-          <li><a href="#!">Home</a></li>
-          <li><a href="#!">스토어</a></li>
-          <li><a href="#!">시공견적</a></li>
-        </ul>
-      </header>
-
-      <div class="product">
-        <div class="search">
-          <input type="text" placeholder="검색어입력">
-        </div>
+    <div class="inner_wrap">
+      <div class="container">
+        <input type="text" placeholder="검색어입력">
+      </div>
+      <div class="container">
         <div class="items">
           <div class="item item01">
             <div class="img">
               <img src="./img/pr1.JPG" alt="">
             </div>
-            <div class="info">
-              <strong>식기세척기</strong>
-              <em>세척나라</em>
-              <p>가격 : 10000</p>
+            <div class="text">
+              <strong class="title">식기세척기</strong>
+              <em class="made">세척나라</em>
+              <p class="price">가격 : 10000</p>
             </div>
-            <button>담기</button>
+            <button class="input">담기</button>
           </div>
           <div class="item item02">
             <div class="img">
               <img src="./img/pr2.JPG" alt="">
             </div>
-            <div class="info">
-              <strong>식기세척기</strong>
-              <em>세척나라</em>
-              <p>가격 : 20000</p>
+            <div class="text">
+              <strong class="title">원목 침대 프레임</strong>
+              <em class="made">침대나라</em>
+              <p class="price">가격 : 20000</p>
             </div>
-            <button>담기</button>
+            <button class="input">담기</button>
           </div>
           <div class="item item03">
             <div class="img">
               <img src="./img/pr3.JPG" alt="">
             </div>
-            <div class="info">
-              <strong>식기세척기</strong>
-              <em>세척나라</em>
-              <p>가격 : 30000</p>
+            <div class="text">
+              <strong class="title">천연 디퓨저 세트</strong>
+              <em class="made">향기나라</em>
+              <p class="price">가격 : 30000</p>
             </div>
-            <button>담기</button>
+            <button class="input">담기</button>
           </div>
           <div class="item item04">
             <div class="img">
               <img src="./img/pr4.JPG" alt="">
             </div>
-            <div class="info">
-              <strong>식기세척기</strong>
-              <em>세척나라</em>
-              <p>가격 : 40000</p>
+            <div class="text">
+              <strong class="title">시원한 서큘레이터</strong>
+              <em class="made">바람나라</em>
+              <p class="price">가격 : 40000</p>
             </div>
-            <button>담기</button>
+            <button class="input">담기</button>
           </div>
         </div>
-
 
       </div>
-
-
-      <div class="cart">
-        <h2>장바구니</h2>
-        <div class="box">
-          <div class="dragBox">
-            <p>여기로 드래그</p>
+      <div class="container">
+        <div class="bg">
+          <h2>장바구니(드래그가능)</h2>
+          <div class="drag_zone">
+            <p>여기로 드래그해서 넣으세요.</p>
           </div>
         </div>
 
+      </div>
+      <div class="container last">
+        <h2>최종가격</h2>
+        <button class="buy">구매하기</button>
       </div>
     </div>
-
 
   </div>
 
 
 
 
-
-
-
-
-  <script src="./practice_quiz.js"></script>
+  <script src="./selfffff.js"></script>
 </body>
 
 </html>
