@@ -115,7 +115,7 @@ button {
 .item .img{
   margin-bottom: 20px;
   width: 266px;
-  height: 239px;
+  height: 225px;
 }
 .item .img img{
   width: 100%;
@@ -125,19 +125,20 @@ button {
 .item .text .title{
   display: block;
   font-size: 27px;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 10px;
 }
 .item .text .made{
   display: block;
   font-size: 15px;
   font-style: normal;
-  font-weight: 400;
-  margin-bottom: 10px;
+  font-weight: 300;
+  margin-bottom: 15px;
 }
 .item .text .price{
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 /* .item .input{
@@ -165,15 +166,18 @@ button {
 }
 .container h2{
   font-size: 25px;
+  font-weight: 600;
   margin-bottom: 20px;
 }
-.last{
-  padding: 0 20px;
-}
+
 .drag_zone{
   background: #000;
   padding: 150px 0;
   text-align: center;
   color: #fff;
   font-size: 25px;
+}
+
+.last{
+  padding: 0 20px;
 }
