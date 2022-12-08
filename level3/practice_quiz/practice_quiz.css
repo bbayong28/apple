@@ -112,17 +112,27 @@ button {
 }
 
 .product{
-  margin: 15px 25px;
+  margin: 15px 10px;
 }
 
 .product .search{
-  
+  padding: 10px 0;
 }
 .product .items{
   display: flex;
   gap: 15px;
+  justify-content: center;
+  align-items: center;
 }
-
 .product .item{
   background: white;
+  padding: 10px 15px;
+}
+.item .img{
+  padding: 10px;
+}
+.item .img img{
+  margin: 0 auto;
+  width: 300px;
+  height: 250px;
 }
