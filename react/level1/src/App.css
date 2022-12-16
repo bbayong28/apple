@@ -27,6 +27,13 @@
 .App-link {
   color: #61dafb;
 }
+.black-nav{
+  display: flex;
+  background: #000;
+  width: 100%;
+  color: #fff;
+  padding-left: 20px;
+}
 
 @keyframes App-logo-spin {
   from {
