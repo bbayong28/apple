@@ -9,7 +9,7 @@ font
 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
-
+ bv b 
 /*
 -------------------------------------
 reset
@@ -90,15 +90,48 @@ button {
     margin: 0;
 }
 
+
+
+
+
+
 .Wrap{
   height: 100vh;
   background: #f4f4f4;
+}
+
+#header{
+  line-height: 50px;
+  background: #333;
+  color: #fff;
+}
+#header .inner{
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 50px;
+}
+#header h1{
+  font-size: 25px;
+}
+#header .menu{
+  display: flex;
+  gap: 30px;
+  color: #777;
+}
+#header .menu .white{
+  color: #fff;
 }
 .container{
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;
   padding: 0 0 25px 0;
+}
+
+.container .out_box{
+  padding: 25px 0 0 0 ;
 }
 .items{
   display: flex;
