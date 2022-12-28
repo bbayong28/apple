@@ -16,32 +16,35 @@ $.get('store.json').then((data)  => {
                 <img src="${a.photo}">
                 <h4>${a.title}</h4>
                 <h4>${a.brand}</h4>
-                <p>가격:${a.price}</p>
+                <p>가격 : ${a.price}</p>
                 <button class="add" data-id"${a.id}">담기</button>
             </div>
         </div>`)
     });
 
-    //담기버튼 누르면 일어날 일W들
-    $('.add').on('click', function () {
+    //담기버튼 누르면 일어날 일들
+    $('.add').on('click', function (e) {
+
         //지금누른 상품번호
         let productId = e.target.dataset.id;
 
         //담기버능 누를 때 let cart = []에 상품을 {}형태로 보관부터하고
 
-        //let cart에 상품이 이미있는지 찾고 없으면 let cart에 {}추가, 있으면 수량만++
-        let 몇번째 = cart.findIndex((a) => { return a.id == productId })
-        
+        //let cart에 상품이 이미있는지 찾고 없으면 let cart에 {}추가, 있으면 수량만++;
+        let 몇번째 = cart.findIndex((a)=>{ return a.id == productId })
+
         if (몇번째 == -1) {
-            let 현재상품 = products.find((a) => {
-                return a.id == productId
-            })
+            let 현재상품 = products.find((a)=> { return a.id == productId });
             현재상품.count = 1;
             cart.push(현재상품);
-        } else { 
+        } else {
             cart[몇번째].count++;
         }
-        console.log(cart)
+        console.log(cart);
+
+        //담
+
+
 
     })
 
