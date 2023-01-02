@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(실전) 웹개발 기능대회 예제</title>
+    <link rel="stylesheet" href="./practice_quiz.css">
+</head>
+
+<body>
+    <div class="Wrap">
+        <div class="inner_wrap">
+            <header id="header">
+                <div class="inner">
+                    <h1>
+                        <a href="./practice_quiz.html">집꾸미기</a>
+                    </h1>
+                    <ul class="menu">
+                        <li>
+                            <a href="" class="white">Home</a>
+                        </li>
+                        <li>
+                            <a href="">스토어</a>
+                        </li>
+                        <li>
+                            <a href="">시공견적</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </header>
+            <div class="container">
+                <div class="out_box">
+                    <input type="text" placeholder="검색어입력">
+                </div>
+            </div>
+            <div class="container">
+                <div class="items">
+                    <div class="item item01">
+                        <div class="img">
+                            <img src="./img/pr1.JPG" alt="">
+                        </div>
+                        <div class="text">
+                            <strong class="title">식기세척기</strong>
+                            <em class="made">세척나라</em>
+                            <p class="price">가격 : 10000</p>
+                        </div>
+                        <button class="input">담기</button>
+                    </div>
+                    <div class="item item02">
+                        <div class="img">
+                            <img src="./img/pr2.JPG" alt="">
+                        </div>
+                        <div class="text">
+                            <strong class="title">원목 침대 프레임</strong>
+                            <em class="made">침대나라</em>
+                            <p class="price">가격 : 20000</p>
+                        </div>
+                        <button class="input">담기</button>
+                    </div>
+                    <div class="item item03">
+                        <div class="img">
+                            <img src="./img/pr3.JPG" alt="">
+                        </div>
+                        <div class="text">
+                            <strong class="title">천연 디퓨저 세트</strong>
+                            <em class="made">향기나라</em>
+                            <p class="price">가격 : 30000</p>
+                        </div>
+                        <button class="input">담기</button>
+                    </div>
+                    <div class="item item04">
+                        <div class="img">
+                            <img src="./img/pr4.JPG" alt="">
+                        </div>
+                        <div class="text">
+                            <strong class="title">시원한 서큘레이터</strong>
+                            <em class="made">바람나라</em>
+                            <p class="price">가격 : 40000</p>
+                        </div>
+                        <button class="input">담기</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="bg">
+                    <h2>장바구니(드래그가능)</h2>
+                    <div class="drag_zone">
+                        <p>여기로 드래그해서 넣으세요.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container">
+                <div class="last">
+                    <h2>최종가격</h2>
+                    <button class="buy">구매하기</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="./practice_quiz.js"></script>
+    <script type="text/javascript" src="store.json"></script>
+</body>
+
+</html>
+<!-- 
+
+  문제1.만들 HTML 파일은 위 사진과 비슷한 레이아웃을 구성해야합니다.
+  - 디자인 잘 했는지 평가는 안하니 Bootstrap 사용하면 빠를 듯
+  - 상품목록은 .json파일로 제공되는데 그 파일에 있는 데이터를 박아넣어야 함.
+  - ajax get 요청으로도 로컬 json 파일에 있는 데이터를 가져올 수 있다.
+  (json 데이터 파일은 하단 첨부파일에 포함되어 있음.)
+
+  문제2. 상품 검색 기능이 필요함.
+  - 상단 <input>에 검색어를 입력하면 그 글자가 제목, 업체명에 들어있으면 그 상품만 보여줘야 함.
+  - 찾은 글자에 노란색 배경을 입혀보기
+
+  문제3. 위 사진처럼 장바구니로 상품을 드래그 할 수있게 만들어야 함.
+  - 상품을 드래그해서 검은 박스에 놓으면 카드가 하나 생성됨.
+  - 담기버튼 눌러도 똑같이 카드 생성해주면 됨.
+  - 이미 잇는 상품이면 카드생성이 아니라 수량만 1 증가해야함.
+
+  문제4. 나머지는 별거아니고
+  - 장바구니 개별 항목의 주문 수량을 변경할 수 있어야 함. 
+  - 모든 상춤과 수량의 최종합계 금액을 어딘가 보여주어야 함.
+  - 구매하기를 누르면 성함 연락처를 입력할 수 있는 모달창을 띄워주어야 합니다.
+
+  문제5. 모달창에서 구매완료 누르면 영수증을 이미지형태로 보여줘야함.
+  - 1. 현재날짜, 2. 주문한 모든 상춤명&가격 3.총 합계금액이 나오면 됨.
+  - 이미지 만드는건 별거 아니고 <canvas>라는 태그를 이용
+  - 자바스크립트 쓰면 <canvas>안에 사진넣고 텍스트 입력도 가능함.
+-->
