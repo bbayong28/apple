@@ -158,11 +158,18 @@
 
       $('.item').on('dragstart', function (e) {
         e.originalEvent.dataTransfer.setData('id', e.target.dataset.id)
+        //내가추가
+        //$(this).css('border', 'solid 2px Red')
       });
 
       $('.basket').on('dragover', function (e) {
         e.preventDefault();
       });
+
+      //내가추가
+      //$('.item').on('dragend', function (e) {
+      //  $(this).css('border', 'none')
+      //});
 
       $('.basket').on('drop', function (e) {
 

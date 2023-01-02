@@ -43,19 +43,30 @@ $.get('store.json').then((data) => {
         console.log(cart);
 
         //담기버튼 누를 때 마다 장바구니 박스 let cart 안에 있던 {} 갯수만큼 html 생성
-        $('.basket').append(`
-            <div class="col-md-3 bg-white">
-                <img src="${a.photo}">
-                <h4>${a.title}</h4>
-                <h4>${a.brand}</h4>
-                <p>${a.price}</p>
-                <input type="number" value="${a.cart}">
-            </div>
-        `)
+        $('.basket').html('');
+        cart.forEach((a, i) => {
+            $('.basket').append(`
+                <div class="col-md-3 bg-white">
+                    <img src="${a.photo}">
+                    <h4>${a.title}</h4>
+                    <h4>${a.brand}</h4>
+                    <p>${a.price}</p>
+                    <input type="number" value="${a.count}" class="item-count w-100">
+                </div>
+            `);
+        });
 
+        //총가격 계산해서 표기해주는 기능
+        가격계산()
 
+        //input값 조절해도 총가겨 계산해서 표기해줘야 될듯
+        $('.item-count').on('input', function () {
+            가격계산();
+        });
 
-    })
+    });// add 버튼 끝
+
+    //.item 드래그로 장바구니에 추가기능
 
 
 
