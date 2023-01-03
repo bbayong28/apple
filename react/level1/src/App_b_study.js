@@ -3,6 +3,7 @@
 
 import './App.css';
 import { useState } from 'react'
+import Modal from './Modal';
 
 function App() {
   //자료 잠깐 저장할 땐 변수
@@ -11,8 +12,18 @@ function App() {
   let post = '강남 우동 맛집';
   //b는 state 변경을 도와주는 함수
   let [글제목, 글제목변경] = useState(['남자 코트 추천', '강남 우동 맛집', '파이썬 독학'])
-  const [like, setLike] = useState(0);
+  const [like, setLike] = useState([0,0,0]);
+  const [modal, setModal] = useState(false);
 
+    //1이 3번찍힘
+    [1, 2, 3].map(function () {
+      console.log(1)
+    })
+      
+    //1,2,3이 찍힘  
+    [1, 2, 3].map(function (a) {
+      console.log(a)
+    })
 
 
 
@@ -22,6 +33,12 @@ function App() {
         <h4>ReactBlog</h4>
       </div>
 
+      <button onClick={() => {
+        let organize = [...글제목];
+        organize.sort();
+        //console.log(organize.sort())
+        글제목변경(organize);
+      }}>정렬버튼</button>
 
       <button onClick={() => {
         /* 
@@ -101,12 +118,146 @@ function App() {
         <p>12월 16일 발행</p>
       </div>
       <div className="list">
-        <h4>{글제목[2]}</h4>
+        <h4 onClick={() => { setModal(!modal) }}>{글제목[2]}</h4>
         <p>12월 16일 발행</p>
       </div>
+
+      {/* 반복되는 html 구조 */}
+      {
+        /* 
+        [1,2,3,4] 는 하드코딩임 
+        실제 블로그 글 갯수만큼 html 생성하려면? 
+
+        [1, 2, 3, 4].map(function () { 
+          return (
+            <div className="list">
+              <h4>{글제목[1]}</h4>
+              <p>12월 16일 발행</p>
+            </div>
+          )
+        });
+
+        글제목.map(function () { 
+          return (
+            <div className="list">
+              <h4>{글제목[1]}</h4>
+              <p>12월 16일 발행</p>
+            </div>
+          )
+        });
+
+        */
+/*         글제목.map(function (a) {
+          return (
+            <div className="list">
+              <h4>{a}</h4>
+              <p>12월 16일 발행</p>
+            </div>
+          )
+        }) */
+      
+
+/*      
+        각각따봉수 올릴 때
+        글제목.map(function (a, i) { 
+          return (
+            <div className="list" key={i}>
+              <h4>{글제목[i]} <span onClick={() => {
+                let copy = [...like];
+                copy[i] = copy[i] + 1
+                setLike(copy)
+              }}>👍🏻</span> {like[i]}</h4>
+              <p>12월 16일 발행</p>
+            </div>
+          )
+        }) 
+        
+*/
+      }
+
+      {
+        /* 모달에 배경색 넣을 때 */
+        글제목.map(function (a, i) { 
+          return (
+            <div className="list" key={i}>
+              <h4 onClick={() => { setModal(!modal) }}>{글제목[i]}</h4>
+              <p>12월 16일 발행</p>
+            </div>
+          )
+        })
+      }
+
+      
+
+      
+      {
+        modal == true ? <Modal color={'skyblue'} 글제목={글제목} 글제목변경={글제목변경} /> : null 
+        
+      }
+
+
+
+
+
+      {/* <Modal></Modal> */}
+      {/* <Modal /> */}
+      
+      {
+        /* modal == true ? <Modal/> : '' */
+        modal == true ? <Modal/> : null /* null은 비어있는 html용으로 자주 사용 */
+        
+      }
+
+
+
+
+
+
     </div >
   );
 }
+
+
+/* function Modal() {
+  return (
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  )
+} 
+const Modal = (props) => {
+  return (
+    <div className="modal">
+      <h4>{props.글제목[0]}</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+      <button onClick={() => {
+      props.글제목변경(['여자 코트 추천', '강남 우동 맛집', '파이썬독학'])
+      }>글수정</button>
+    </div>
+  )
+}
+
+
+const Modal = (props) => {
+  return (
+    <div className="modal">
+      <h4>{props.글제목[0]}</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+      <button onClick={() => {
+        let copy = [...props.글제목]
+        copy[0] = '여자 코트 추천'
+        props.글제목변경(copy);
+      }}>글수정</button>
+    </div>
+  )
+}
+
+
+}*/
 
 
 export default App;
