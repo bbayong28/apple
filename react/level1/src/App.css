@@ -39,10 +39,11 @@ div{
 
 .black-nav{
   display: flex;
-  background: #000;
+  background: #f393d1;
   width: 100%;
-  color: #fff;
+  color: #3c2089;
   padding-left: 20px;
+  margin-bottom: 20px;
 }
 
 @keyframes App-logo-spin {
