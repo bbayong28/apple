@@ -47,17 +47,34 @@ function App() {
                   setLike(copy)
                 }}>👍🏻</span> {like[i]}</h4>
               <p>12월 16일 발행</p>
+              <button onClick={() => {
+                let copy = [...글제목]
+                copy.splice(i, 1)
+                글제목변경(copy)
+              }}>삭제</button>
             </div>
           )
         })
       }
 
 
+
+
+
       <input onChange={(e) => {
         입력값변경(e.target.value);
-        console.log(입력값)
       }} />
-      <button>버튼</button>
+      <button onClick={() => {
+        let copy = [...글제목]
+        copy.unshift(입력값);
+        글제목변경(copy)
+      }}>글발행</button>
+
+
+
+
+
+
 
       {
         modal == true ? <Modal color={'skyblue'} 글제목={글제목} 글제목변경={글제목변경} title={title} /> : null

@@ -204,6 +204,16 @@ function App() {
                 setLike(copy)
               }}>👍🏻</span> {like[i]}</h4> */}
               <p>12월 16일 발행</p>
+              {/* <button onClick={() => {
+                let copy = [...글제목]
+                copy.splice(0, 1)
+                글제목변경(copy)
+              }}>삭제</button> */}
+              <button onClick={() => {
+                let copy = [...글제목]
+                copy.splice(i, 1)
+                글제목변경(copy)
+              }}>삭제</button>
             </div>
           )
         })
