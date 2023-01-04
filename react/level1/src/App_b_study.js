@@ -12,18 +12,20 @@ function App() {
   let post = '강남 우동 맛집';
   //b는 state 변경을 도와주는 함수
   let [글제목, 글제목변경] = useState(['남자 코트 추천', '강남 우동 맛집', '파이썬 독학'])
-  const [like, setLike] = useState([0,0,0]);
+  const [like, setLike] = useState([0, 0, 0]);
   const [modal, setModal] = useState(false);
+  const [title, setTitle] = useState(0);
+  const [입력값, 입력값변경] = useState('');
 
-    //1이 3번찍힘
-    [1, 2, 3].map(function () {
-      console.log(1)
-    })
-      
-    //1,2,3이 찍힘  
-    [1, 2, 3].map(function (a) {
-      console.log(a)
-    })
+  //1이 3번찍힘
+  [1, 2, 3].map(function () {
+    console.log(1)
+  })
+
+  //1,2,3이 찍힘  
+  [1, 2, 3].map(function (a) {
+    console.log(a)
+  })
 
 
 
@@ -123,8 +125,7 @@ function App() {
       </div>
 
       {/* 반복되는 html 구조 */}
-      {
-        /* 
+      {/* 
         [1,2,3,4] 는 하드코딩임 
         실제 블로그 글 갯수만큼 html 생성하려면? 
 
@@ -155,7 +156,7 @@ function App() {
             </div>
           )
         }) */
-      
+
 
 /*      
         각각따봉수 올릴 때
@@ -172,12 +173,12 @@ function App() {
           )
         }) 
         
-*/
-      }
+*/}
+
 
       {
         /* 모달에 배경색 넣을 때 */
-        글제목.map(function (a, i) { 
+        글제목.map(function (a, i) {
           return (
             <div className="list" key={i}>
               <h4 onClick={() => { setModal(!modal) }}>{글제목[i]}</h4>
@@ -187,12 +188,52 @@ function App() {
         })
       }
 
-      
-
-      
       {
-        modal == true ? <Modal color={'skyblue'} 글제목={글제목} 글제목변경={글제목변경} /> : null 
-        
+        글제목.map(function (a, i) {
+          return (
+            <div className="list" key={i}>
+              <h4 onClick={() => { setModal(true); setTitle(i) }}>{글제목[i]} <span onClick={(e) => {
+                e.stopPropagation()
+                let copy = [...like];
+                copy[i] = copy[i] + 1
+                setLike(copy)
+              }}>👍🏻</span> {like[i]}</h4>
+              {/* <h4 onClick={() => { setModal(!modal); setTitle(i) }}>{글제목[i]} <span onClick={() => {
+                let copy = [...like];
+                copy[i] = copy[i] + 1
+                setLike(copy)
+              }}>👍🏻</span> {like[i]}</h4> */}
+              <p>12월 16일 발행</p>
+            </div>
+          )
+        })
+      }
+
+
+      {/*       
+      <input onChange={(e) => { console.log(e.target.value) }} /> 
+      */}
+
+      {/*}
+      <input onChange={(e) => { 입력값변경(e.target.value) }} />
+      */}
+
+      <input onChange={(e) => {
+        입력값변경(e.target.value);
+        console.log(입력값);
+      }} />
+
+
+      {/* <button onClick={() => { setTitle(0) }}>글제목0</button>
+      <button onClick={() => { setTitle(1) }}>글제목1</button>
+      <button onClick={() => { setTitle(2) }}>글제목2</button> */}
+
+
+
+
+      {
+        modal == true ? <Modal color={'skyblue'} 글제목={글제목} 글제목변경={글제목변경} title={title} /> : null
+
       }
 
 
@@ -201,11 +242,11 @@ function App() {
 
       {/* <Modal></Modal> */}
       {/* <Modal /> */}
-      
+
       {
         /* modal == true ? <Modal/> : '' */
-        modal == true ? <Modal/> : null /* null은 비어있는 html용으로 자주 사용 */
-        
+        modal == true ? <Modal /> : null /* null은 비어있는 html용으로 자주 사용 */
+
       }
 
 

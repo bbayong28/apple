@@ -15,6 +15,7 @@ const Modal = (props) => {
   )
 }
  */
+/* 
 const Modal = (props) => {
   return (
     <div className="modal">
@@ -24,7 +25,19 @@ const Modal = (props) => {
       <button>글수정</button>
     </div>
   )
-}
+} 
+*/
 
+const Modal = (props) => {
+  return (
+    <div className="modal">
+      {/* <h4>{title state가 0이면 props. 글제목[0]을 보여주세요}</h4> */}
+      <h4>{props.글제목[props.title]}</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+      <button>글수정</button>
+    </div>
+  )
+}
 
 export default Modal;

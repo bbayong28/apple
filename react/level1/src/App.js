@@ -6,10 +6,12 @@ import { useState } from 'react'
 import Modal from './Modal';
 
 function App() {
-  let post = '강남 우동 맛집';
+  //let post = '강남 우동 맛집';
   let [글제목, 글제목변경] = useState(['한식 맛집 리뷰', '중식 맛집 리뷰', '양식 맛집 리뷰']);
-  const [like, setLike] = useState([0,0,0]);
+  const [like, setLike] = useState([0, 0, 0]);
   const [modal, setModal] = useState(false);
+  const [title, setTitle] = useState(0);
+  const [입력값, 입력값변경] = useState('');
 
 
   return (
@@ -31,27 +33,35 @@ function App() {
         글제목변경(copy);
       }}>글수정</button>
 
-      
+
       {
-        글제목.map(function (a, i) { 
+        글제목.map(function (a, i) {
           return (
             <div className="list" key={i}>
-              {/* <h4>{글제목[i]} <span onClick={() => {
-                let copy = [...like];
-                copy[i] = copy[i] + 1
-                setLike(copy)
-              }}>👍🏻</span> {like[i]}</h4> */}
-              <h4 onClick={() => { setModal(!modal) }}>{글제목[i]}</h4>
+              <h4 onClick={() => { setModal(!modal); setTitle(i) }}>
+                {글제목[i]}
+                <span onClick={(e) => {
+                  e.stopPropagation()
+                  let copy = [...like];
+                  copy[i] = copy[i] + 1
+                  setLike(copy)
+                }}>👍🏻</span> {like[i]}</h4>
               <p>12월 16일 발행</p>
             </div>
           )
         })
       }
 
-      
+
+      <input onChange={(e) => {
+        입력값변경(e.target.value);
+        console.log(입력값)
+      }} />
+      <button>버튼</button>
+
       {
-        modal == true ? <Modal color={'skyblue'} 글제목={글제목} 글제목변경={글제목변경} /> : null 
-        
+        modal == true ? <Modal color={'skyblue'} 글제목={글제목} 글제목변경={글제목변경} title={title} /> : null
+
       }
 
 
