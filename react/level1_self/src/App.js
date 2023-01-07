@@ -8,7 +8,9 @@ function App() {
 
   let [title, setTitle] = useState(['탑건:매버릭 리뷰', '육사오 리뷰', '아바타2 리뷰']);
   let [like, setLike] = useState(0);
-  let [ hi, setHi ] = useState('안녕')
+  let [hi, setHi] = useState('안녕');
+  let [modal, setModal] = useState(false);
+  let [date, setDate] = useState(['2022.06.22', '2022.08.24', '2022.12.14']);
   
 
   return (
@@ -22,6 +24,9 @@ function App() {
           let copy = [...title]
           copy[0] = '닥터스트레인지 리뷰'
           setTitle(copy);
+          let datecopy = [...date]
+          datecopy[0] = '2022.08.01'
+          setDate(datecopy);
         }}> 글 변경 </button>
         <button onClick={() => { 
           let copy = [...title]
@@ -30,11 +35,35 @@ function App() {
         }}>가나다순 정렬</button>
       </div>
 
-      
-
       <div className="lists">
-        <div className='list'>
-          <h4>
+        
+      
+        {
+          title.map((a, i) => {
+            return (
+              <div className='list' key={i}>
+                <h4 onClick={() => { setModal(!modal) }}> 
+                {title[i]}
+                  <span onClick={(event) => {
+                    event.stopPropagation();
+                    setLike(like + 1);
+                  }}>
+                    👍🏻
+                  </span>
+                  {like}
+                </h4>
+                <p>{date[i]}</p>
+              </div> 
+            )
+          })
+        }
+
+
+
+
+        
+        {/* <div className='list'>
+          <h4 onClick={()=> { setModal(!modal) }}>
             {title[0]} <span onClick={() => { setLike(like+1) }}>👍🏻</span> {like}
           </h4>
           <p>2022.06.22</p>
@@ -46,10 +75,13 @@ function App() {
         <div className='list'>
           <h4>{ title[2] }</h4>
           <p>2022.12.14</p>
-        </div>
+        </div> */}
       </div>
 
-      <Modal title={title} />
+      {/* <Modal title={title} /> */}
+      {
+        modal == true ? <Modal title={title}></Modal> : null
+      }
       <Last></Last>
 
     </div>
