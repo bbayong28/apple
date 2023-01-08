@@ -97,6 +97,7 @@ function App() {
 }
 
 
+/* Modal */
 function Modal(props) { 
   return (
     <div className='modal'>
@@ -112,6 +113,7 @@ function Modal(props) {
   )
 }
 
+/* Last */
 function Last() { 
   return (
     <div className='last'>
