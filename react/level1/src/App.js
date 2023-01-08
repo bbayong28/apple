@@ -1,94 +1,124 @@
 /* eslint-disable */
 //터미널 WARNING message끄는 거
 
+import { useState } from 'react';
 import './App.css';
-import { useState } from 'react'
-import Modal from './Modal';
+
 
 function App() {
-  //let post = '강남 우동 맛집';
-  let [글제목, 글제목변경] = useState(['한식 맛집 리뷰', '중식 맛집 리뷰', '양식 맛집 리뷰']);
-  const [like, setLike] = useState([0, 0, 0]);
-  const [modal, setModal] = useState(false);
-  const [title, setTitle] = useState(0);
-  const [입력값, 입력값변경] = useState('');
 
+  let [title, setTitle] = useState(['탑건:매버릭 리뷰', '육사오 리뷰', '아바타2 리뷰']);
+  let [like, setLike] = useState([0, 0, 0]);
+  let [hi, setHi] = useState('안녕');
+  let [modal, setModal] = useState(false);
+  let [date, setDate] = useState(['2022.06.22', '2022.08.24', '2022.12.14']);
+  let [mtitle, setMtitle] = useState(0);
+  let [mdate, setMdate] = useState(0);
+  let [input, setInput] = useState('')
+  
 
   return (
     <div className="App">
-      <div className="black-nav">
-        <h4>맛집 리뷰</h4>
+      <div className='header'>
+        <h4>Movie Diary</h4>
+      </div>
+      <div className='buttons'>
+
+        <button onClick={() => { 
+          let copy = [...title]
+          copy[0] = '닥터스트레인지 리뷰'
+          setTitle(copy);
+          let datecopy = [...date]
+          datecopy[0] = '2022.08.01'
+          setDate(datecopy);
+        }}> 글 변경 </button>
+
+        <button onClick={() => { 
+          let copy = [...title]
+          copy.sort();
+          setTitle(copy);
+        }}>가나다순 정렬</button>
+
       </div>
 
-      <button onClick={() => {
-        let organize = [...글제목];
-        organize.sort();
-        글제목변경(organize);
-      }}>정렬버튼</button>
+      <div className="lists">     
+        {
+          title.map((a, i) => {
+            return (
+              <div className='list' key={i}>
+                <h4 onClick={() => {
+                  setModal(true);
+                  setMtitle(i);
+                  setMdate(i);
+                }}> 
+                  {title[i]}
+                  <span onClick={(event) => {
+                    event.stopPropagation();
+                    let likecopy = [...like]
+                    likecopy[i] = likecopy[i] + 1
+                    setLike(likecopy);
+                  }}>
+                    👍🏻
+                  </span>
+                  {like[i]}
+                </h4>
+                <p>{date[i]}</p>
+                <button onClick={() => { 
+                  let copy = [...title]
+                  copy.splice(i, 1)
+                  setTitle(copy)
+                }}>삭제</button>
+              </div> 
+            )
+          })
+        }
 
+        <div className='add'>
+          <input onChange={(e) => {
+            setInput(e.target.value);
+          }} />
+          <button onClick={() => { 
+            let copy = [...title]
+            copy.unshift(input);
+            setTitle(copy);
+          }}>추가</button>
+        </div>
+      
+      </div>
 
-      <button onClick={() => {
-        let copy = [...글제목];
-        copy[0] = '여자 코트 추천'
-        글제목변경(copy);
-      }}>글수정</button>
-
-
+      
       {
-        글제목.map(function (a, i) {
-          return (
-            <div className="list" key={i}>
-              <h4 onClick={() => { setModal(!modal); setTitle(i) }}>
-                {글제목[i]}
-                <span onClick={(e) => {
-                  e.stopPropagation()
-                  let copy = [...like];
-                  copy[i] = copy[i] + 1
-                  setLike(copy)
-                }}>👍🏻</span> {like[i]}</h4>
-              <p>12월 16일 발행</p>
-              <button onClick={() => {
-                let copy = [...글제목]
-                copy.splice(i, 1)
-                글제목변경(copy)
-              }}>삭제</button>
-            </div>
-          )
-        })
+        modal == true ? <Modal title={title} setTitle={setTitle} mtitle={mtitle} date={date} mdate={mdate}></Modal> : null
       }
+      <Last/>
 
-
-
-
-
-      <input onChange={(e) => {
-        입력값변경(e.target.value);
-      }} />
-      <button onClick={() => {
-        let copy = [...글제목]
-        copy.unshift(입력값);
-        글제목변경(copy)
-      }}>글발행</button>
-
-
-
-
-
-
-
-      {
-        modal == true ? <Modal color={'skyblue'} 글제목={글제목} 글제목변경={글제목변경} title={title} /> : null
-
-      }
-
-
-
-    </div >
+    </div>
   );
 }
 
 
+function Modal(props) { 
+  return (
+    <div className='modal'>
+      <h4>{props.title[props.mtitle]}</h4>
+      <p>상세 리뷰</p>
+      <strong>{ props.date[props.mdate] }</strong>
+      <button onClick={() => { 
+        let copy = [...props.title]
+        copy[0] = '닥터스트레인지 리뷰'
+        props.setTitle(copy)
+      }} >글수정</button>
+    </div>
+  )
+}
 
+function Last() { 
+  return (
+    <div className='last'>
+      <p>리뷰어의 개인적 의견입니다.</p>
+      <p>문의 사항이 있으신 분은 abccc@naver.com로 메일주세요.</p>
+    </div>
+  )
+}
 
 export default App;
-

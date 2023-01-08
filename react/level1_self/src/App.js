@@ -1,4 +1,5 @@
 /* eslint-disable */
+//터미널 WARNING message끄는 거
 
 import { useState } from 'react';
 import './App.css';
@@ -16,6 +17,7 @@ function App() {
   let [date, setDate] = useState(['2022.06.22', '2022.08.24', '2022.12.14']);
   let [mtitle, setMtitle] = useState(0);
   let [mdate, setMdate] = useState(0);
+  let [input, setInput] = useState('')
   
 
   return (
@@ -25,6 +27,7 @@ function App() {
         <h4>Movie Diary</h4>
       </div>
       <div className='buttons'>
+
         <button onClick={() => { 
           let copy = [...title]
           copy[0] = '닥터스트레인지 리뷰'
@@ -33,16 +36,16 @@ function App() {
           datecopy[0] = '2022.08.01'
           setDate(datecopy);
         }}> 글 변경 </button>
+
         <button onClick={() => { 
           let copy = [...title]
           copy.sort();
           setTitle(copy);
         }}>가나다순 정렬</button>
+
       </div>
 
-      <div className="lists">
-        
-      
+      <div className="lists">     
         {
           title.map((a, i) => {
             return (
@@ -71,10 +74,39 @@ function App() {
                   {like[i]}
                 </h4>
                 <p>{date[i]}</p>
+                <button onClick={() => { 
+                  let copy = [...title]
+                  //0번째 배열부터 1개씩 삭제
+                  //copy.splice(0, 1)
+                  //1번째 배열부터 1개씩 삭제
+                  //copy.splice(1, 1)
+                  //2번째 배열부터 1개씩 삭제
+                  //copy.splice(2, 1)
+                  //copy에서 원하는 자료 삭제(= 내가 클릭한것 삭제)
+                  copy.splice(i, 1)
+                  setTitle(copy)
+                }}>삭제</button>
               </div> 
             )
           })
         }
+
+        {/*
+          <input onChange={(e) => { console.log(e.target.value)}} /> 
+        */}
+        <div className='add'>
+          <input onChange={(e) => {
+            setInput(e.target.value);
+            /* console.log(input) */
+          }} />
+          <button onClick={() => { 
+            let copy = [...title]
+            //copy 맨 처음 위치에 유저가 입력한 글 추가
+            copy.unshift(input);
+            setTitle(copy);
+          }}>추가</button>
+        </div>
+      
 
 
         {/* 
@@ -120,6 +152,11 @@ function App() {
 }
 
 
+
+
+
+
+
 function Modal(props) { 
   return (
     /* 
@@ -141,6 +178,11 @@ function Modal(props) {
     </div>
   )
 }
+
+
+
+
+
 
 function Last() { 
   return (

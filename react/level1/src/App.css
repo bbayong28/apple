@@ -27,37 +27,122 @@
 .App-link {
   color: #61dafb;
 }
-div{
-  box-sizing: border-box;
-}
-
-.list{
-  padding-left: 20px;
-  text-align: left;
-  border-bottom: 1px solid grey;
-}
-
-.black-nav{
-  display: flex;
-  background: #f393d1;
-  width: 100%;
-  color: #3c2089;
-  padding-left: 20px;
-  margin-bottom: 20px;
-}
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.modal{
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.header {
+  display: flex;
+  background: #282c34;
+  color: #fff;
+  width: 100%;
+  padding-left: 20px;
+  line-height: 70px;
+}
+
+.header h4 {
+  font-size: 25px;
+}
+
+.buttons {
+  padding: 10px 0 0 20px;
+  display: flex;
+  gap: 10px;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.list {
+  padding: 20px;
+  text-align: left;
+  border-bottom: 1px solid grey;
+}
+
+.list h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.list p {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.list button {
+  margin: 13px 0 0 0;
+  outline: none;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 5px;
+}
+
+.add input {
+  margin: 20px 0 0 0;
+}
+
+.add button {
+  margin-left: 10px;
+  outline: none;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 5px;
+}
+
+.modal {
   margin-top: 20px;
   padding: 20px;
   background: #eee;
   text-align: left;
+}
+
+.modal h4 {
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.modal p {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.modal strong {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.modal button {
+  display: block;
+  margin: 20px 0;
+}
+
+.last {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.last p {
+  font-size: 13px;
+  color: #777;
 }
