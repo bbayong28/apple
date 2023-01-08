@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import './App.css';
 
-
+/* Modal */
 function App() {
 
   let [title, setTitle] = useState(['탑건:매버릭 리뷰', '육사오 리뷰', '아바타2 리뷰']);
