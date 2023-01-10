@@ -1,5 +1,5 @@
 import React from 'react'
-import Product from './Product'
+import Product from '../Product'
 
 const Home = (props) => {
   return (
@@ -7,14 +7,17 @@ const Home = (props) => {
       <div className='main-bg'></div>
       <div className='container'>
         <div className='row'>
-          {props.shoes.map((a, i) => { 
+          {
+            props.shoes.map((a, i) => { 
               return (
-                <Product shoes={props.shoes[i]} i={i}></Product>
-              )})}          
+                <Product key={i} shoes={props.shoes[i]} i={i}></Product>
+              ) 
+            })
+          }          
         </div>           
       </div>
     </div>
   )
 }
 
-export default Home
+export default Home;
