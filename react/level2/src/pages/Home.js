@@ -7,6 +7,11 @@ const Home = (props) => {
       <div className='main-bg'></div>
       <div className='container'>
         <div className='row'>
+          {/* <button onClick={() => { 
+            let copy = [...props.shoes]
+            copy.sort();
+            props.setShoes(copy);
+          }}>가나다순 정렬</button> */}
           {
             props.shoes.map((a, i) => { 
               return (

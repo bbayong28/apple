@@ -15,7 +15,7 @@ let data = [
 
   {
     id : 2,
-    title : "Wide Set Grren",
+    title : "Wide Set Green",
     content : "HIGHALU",
     price : '1,729,000'
   }

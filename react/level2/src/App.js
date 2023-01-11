@@ -9,7 +9,7 @@ import About from './pages/About';
 import Event from './pages/Event';
 
 function App() {
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let navigate = useNavigate()
 
 
@@ -32,20 +32,19 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path="/" element={<Home shoes={shoes} /> } />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/" element={<Home shoes={shoes} setShoes={setShoes} /> } />{/* 
+        <Route path="/detail" element={<Detail shoes={shoes} />} />     */}  
+        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />      
         
+
         <Route path="/about" element={<About />}>          
           <Route path="member" element={ <p>조직도</p> }/>
           <Route path="location" element={<p>회사위치</p>} />
         </Route>
-
-
         <Route path="/event" element={<Event />}>
           <Route path="one" element={ <p>첫 주문시 양배추즙 서비스</p> }/>
           <Route path="two" element={<p>생일기념 쿠폰받기</p>} />
-        </Route>
-        
+        </Route>        
         <Route path="*" element={ <div>없는페이지요</div> }/>
       </Routes>
 

@@ -168,6 +168,16 @@ function App() {
 
         <Route path="/" element={<Home shoes={shoes} /> } />
         <Route path="/detail" element={<Detail />} />
+        
+        {/* 
+        <Route path="/detail/0" element={<Detail />} />
+        <Route path="/detail/1" element={<Detail />} />
+        <Route path="/detail/2" element={<Detail />} />
+        <Route path="/detail/3" element={<Detail />} />
+        ...
+        <Route path="/detail/100" element={<Detail />} /> 
+        */}
+      
 
         {/* 
         <Route path="/about" element={<About />}/>          
