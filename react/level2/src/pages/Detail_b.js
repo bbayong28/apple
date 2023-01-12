@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 //import styled from 'styled-components';
+
+//옛날 갈고리 다는 법
+//class Detail2 extends React.Component { 
+//  conponentDidMount() { 
+//    //컴포넌트 mount시 여기 코드 실행됨
+//  }
+//  conponentDidUpdate() { 
+//    //컴포넌트 mount시 여기 코드 실행됨
+//  }
+//  conponentDidUnmount() {
+//    //컴포넌트 mount시 여기 코드 실행됨
+//  }
+//}
 
 /*
 let YellowBtn = styled.button`
@@ -41,14 +54,37 @@ let NewBtn = styled(YellowBtn)`
 ` */
 
 
-let Detail = (props) => {
+const Detail = (props) => {
 
-  let { id } = useParams();
-  //console.log(id);
-  let 찾은상품 = props.shoes.find(function (x) {
-    return x.id == id
-  })
+/* 
+  for (var i = 0; i < 10000; i++) {
+    console.log(1);
+  } */
   
+  let { id } = useParams();
+  //console.log(id);  
+  let 찾은상품 = props.shoes.find(x => x.id == id)
+  //let 찾은상품 = props.shoes.find( function (x) { return x.id == id })  
+  let [count, setCount] = useState(0);
+  let [alert, setAlert] = useState(ture);
+
+    useEffect(() => { 
+    /* mount, update 시 여기 코드 발생 */
+    //console.log('안녕');
+    /* for (var i = 0; i < 10000; i++) {
+      console.log(1);
+    } */
+    /* setTimeout(() => { setAlert(false) }, 2000)
+    },[]) */
+      let a = setTimeout(() => { setAlert(false) }, 2000)
+      console.log(2)
+      return () => {
+        console.log(1)
+        clearTimeout(a)
+      }
+      
+    })
+
   return (
     <div className="container">
       {/* 
@@ -58,7 +94,12 @@ let Detail = (props) => {
       */}
       {/* <YellowBtn bg="blue">버튼</YellowBtn>
       <YellowBtn bg="orange">버튼</YellowBtn>
-      <NewBtn>버튼</NewBtn> */}
+      <NewBtn>버튼</NewBtn> */}      
+      {
+      alert == true ? <div className='alert alert-warning'>2초이내 구매시 할인</div> : null
+      }
+      {count}
+      <button onClick={() => { setCount(count + 1) }}>버튼</button>
       <div className="row">
         <div className="col-md-6">
           <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
