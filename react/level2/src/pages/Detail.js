@@ -8,22 +8,26 @@ const Detail = (props) => {
     return x.id == id
   });
   let [count, setCount] = useState(0);
-  let [alert, setAlert] = useState(true);
+  let [popup, setPopup] = useState(true);
+  let [num, setNum] = useState('')
 
   useEffect(() => { 
-    let a = setTimeout(() => { setAlert(false) }, 2000)
-    console.log(2)
-
+    let a = setTimeout(() => { setPopup(false) }, 2000)
     return () => {
-      console.log(1)
       clearTimeout(a)
     }
   }, [])
   
+  useEffect(() => { 
+    if (isNaN(num) == true){ 
+      alert('숫자를 입력하세요.');
+    }
+  }, [num])
+  
   return (
     <div className="container">      
       {
-        alert == true
+        popup == true
           ? <div className='alert alert-warning'>2초이내 구매시 할인</div>
           : null
       }
@@ -33,6 +37,7 @@ const Detail = (props) => {
         <div className="col-md-6">
           <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
         </div>
+        <input onChange={(e) => { setNum(e.target.value) }}/>
         <div className="col-md-6">
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>

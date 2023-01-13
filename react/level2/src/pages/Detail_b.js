@@ -68,7 +68,7 @@ const Detail = (props) => {
   let [count, setCount] = useState(0);
   let [alert, setAlert] = useState(ture);
 
-    useEffect(() => { 
+  useEffect(() => { 
     /* mount, update 시 여기 코드 발생 */
     //console.log('안녕');
     /* for (var i = 0; i < 10000; i++) {
@@ -76,14 +76,13 @@ const Detail = (props) => {
     } */
     /* setTimeout(() => { setAlert(false) }, 2000)
     },[]) */
-      let a = setTimeout(() => { setAlert(false) }, 2000)
-      console.log(2)
-      return () => {
-        console.log(1)
-        clearTimeout(a)
-      }
-      
-    })
+    let a = setTimeout(() => { setAlert(false) }, 2000)
+    //console.log(2)
+    return () => {
+      //console.log(1)
+      clearTimeout(a)
+    }      
+  })
 
   return (
     <div className="container">
