@@ -1,5 +1,6 @@
 import React from 'react'
 import Product from '../Product'
+import axios from 'axios'
 
 const Home = (props) => {
   return (
@@ -21,6 +22,14 @@ const Home = (props) => {
           }          
         </div>           
       </div>
+      <button onClick={() => { 
+        axios.get('https://codingapple1.github.io/shop/data2.json').then((결과) => {            
+            console.log(결과.data)
+            console.log(props.shoes)
+            let copy = [...props.shoes, ...결과.data];
+            props.setShoes(copy);
+          })
+      }}>더보기</button>
     </div>
   )
 }

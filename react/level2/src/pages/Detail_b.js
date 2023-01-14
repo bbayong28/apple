@@ -66,8 +66,9 @@ const Detail = (props) => {
   let 찾은상품 = props.shoes.find(x => x.id == id)
   //let 찾은상품 = props.shoes.find( function (x) { return x.id == id })  
   let [count, setCount] = useState(0);
-  let [alert, setAlert] = useState(ture);
-
+  let [popup, setPopup] = useState(true);
+  let [num, setNum] = useState('');
+  
   useEffect(() => { 
     /* mount, update 시 여기 코드 발생 */
     //console.log('안녕');
@@ -83,6 +84,12 @@ const Detail = (props) => {
       clearTimeout(a)
     }      
   })
+
+  useEffect(() => { 
+    if (isNaN(num) == true){ 
+      alert('숫자를 입력하세요.');
+    }
+  }, [num])
 
   return (
     <div className="container">
@@ -110,6 +117,7 @@ const Detail = (props) => {
           <p>{props.shoes[id].price}</p>
           <button className="btn btn-danger">주문하기</button>  
           */}
+          <input onChange={(e) => { setNum(e.target.value) }}/>
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}</p>
