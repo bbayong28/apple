@@ -68,6 +68,7 @@ const Detail = (props) => {
   let [count, setCount] = useState(0);
   let [popup, setPopup] = useState(true);
   let [num, setNum] = useState('');
+  let [tab, setTab] = useState('');
   
   useEffect(() => { 
     /* mount, update 시 여기 코드 발생 */
@@ -122,11 +123,43 @@ const Detail = (props) => {
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}</p>
           <button className="btn btn-danger">주문하기</button> 
-        </div>
-          
+        </div>         
       </div>
+
+      {/* 탭만들기 */}
+      <Nav variant="tabs"  defaultActiveKey="link0">
+      <Nav.Item>
+          <Nav.Link eventKey="link0" onClick={() => { setTab(0) }}>버튼0</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+          <Nav.Link eventKey="link1" onClick={() => { setTab(1) }}>버튼1</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link eventKey="link2" onClick={() => { setTab(2) }}>버튼2</Nav.Link>
+      </Nav.Item>
+      </Nav>
+      <Tabcontent tab={tab} />
     </div> 
   )
 }
+
+
+//function Tabcontent(props) { 
+//  if (props.tab == 0) {
+//    return <div>내용0</div>
+//  }
+//  if (props.tab == 1) {
+//    return <div>내용1</div>
+//  }
+//  if (props.tab == 2) {
+//    return <div>내용2</div>
+//  }
+//}
+
+
+function Tabcontent ( ) { 
+  return  [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>] [tab]
+} 
+
 
 export default Detail;
