@@ -64,7 +64,8 @@ const Cart = () => {
                   <td>{ more.cart[i].count }</td>
                   <td>
                     <button onClick={() => { 
-                      dispatch(changeName())
+                      //dispatch(changeName())
+                      dispatch(addCounter(i))
                     }}>+</button>
                   </td>
                 </tr>

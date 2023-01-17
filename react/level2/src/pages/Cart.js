@@ -2,7 +2,7 @@ import React from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeName, changeAge } from '../state/userSlice'
-import { chageCounter } from '../state/store'
+import { addCounter } from '../state/store'
 
 const Cart = () => {
 
@@ -39,8 +39,8 @@ const Cart = () => {
                   <td>{ more.cart[i].count }</td>
                   <td>
                     <button onClick={() => { 
-                      //dispatch(changeName())
-                      dispatch(chageCounter())
+                      //dispatch(addCounter(i))
+                      dispatch(addCounter(more.cart[i].id))                      
                     }}>+</button>
                   </td>
                 </tr>

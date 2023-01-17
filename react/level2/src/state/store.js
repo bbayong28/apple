@@ -1,38 +1,27 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 import user from './userSlice'
 
-// 길어서 userSlice.js로 따로 뺌
-//let user = createSlice({
-//  name: 'user',
-//  initialState: { name: 'kim', age: 20 },
-//  reducers: {
-//    changeName(state) {
-//      state.name = 'park'
-//    },
-//    changeAge(state, action) {
-//      state.age += action.payload
-//    },
-//  }
-//})
-//export let { changeName, changeAge } = user.actions
-
-
-
 let cart = createSlice({
   name: 'cart',
   initialState : [
     { id: 0, name: 'White and Black', count: 2 },
-    { id: 2, name: 'Grey Yordan', count: 1 }
+    { id: 2, name: 'Grey Yordan', count: 1 },
   ],
   reducers: {
-    chageCounter(state, action) { 
-      state.count += state + 1
-    } 
+    addCounter(state, action) { 
+      let 번호 = state.findIndex((a) => {
+        return a.id === action.payload
+      })
+      state[번호].count++
+    },
+    addItem(state, action) { 
+      //state.push({ id: 1, name: 'Red Knit', count: 1 })
+      state.push(action.payload)
+    }
   }
 })
-  
 
-export let { chageCounter } = cart.actions
+export let { addCounter, addItem } = cart.actions
 
 
 let stock = createSlice({

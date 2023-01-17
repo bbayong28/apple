@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useFetcher, useParams } from 'react-router-dom';
 import { Nav } from 'react-bootstrap'
 //import { Context1 } from '../App';
+import { addItem } from '../state/store';
+import { useDispatch } from 'react-redux';
 
 const Detail = (props) => {
 
@@ -34,7 +36,19 @@ const Detail = (props) => {
     return () => { 
       setFade2('')  
     }
-  },[])
+  }, [])
+
+
+  let dispatch = useDispatch();
+  
+
+
+
+
+
+
+
+
   
   return (
     <div className={'container start ' + fade2}>      
@@ -55,7 +69,10 @@ const Detail = (props) => {
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}</p>
-          <button className="btn btn-danger">주문하기</button> 
+          <button className="btn btn-danger" onClick={() => { 
+            //dispatch(addItem( {id : 1, name : 'Red Knit', count :1} ))
+            dispatch(addItem( {id : 찾은상품.id, name : 찾은상품.title, count : 찾은상품.count} ))
+          }}>주문하기</button> 
         </div>
       </div>
 

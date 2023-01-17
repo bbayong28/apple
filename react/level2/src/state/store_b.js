@@ -59,12 +59,31 @@ let cart = createSlice({
     { id: 2, name: 'Grey Yordan', count: 1 }
   ],
   //reducers: {
-  //  changeCount(state) { 
+  //  changeCount(state) {
   //    return state + 1
   //  },
   //}
+  reducers: {
+    addCounter(state, action) { 
+      //state[action.payload].count++
+      //action.payload
+      let 번호 = state.findIndex((a) => {
+        return a.id === action.payload
+      })
+      state[번호].count++
+    },
+    addItem(state, action) { 
+      //state.push({ id: 1, name: 'Red Knit', count: 1 })
+      state.push(action.payload)
+    }
+  }
 })
   
+
+//addItem({ id: 1, name: 'Red Knit', count: 1 })
+export let { addCounter, addItem } = cart.actions
+
+
 //export let { changeCount } = cart.actions
 
 let stock = createSlice({
