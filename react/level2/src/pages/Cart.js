@@ -1,18 +1,24 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeName } from '../state/store'
+import { changeName, changeAge } from '../state/userSlice'
+import { chageCounter } from '../state/store'
 
 const Cart = () => {
 
   //let more = useSelector((state) => { return state })
   let more = useSelector((state) => state)
-  //console.log(state.cart) => [ {}, {} ]
-  let dispatch = useDispatch
+  let dispatch = useDispatch()
   
   
   return (
     <div>
+
+      <h6>{more.user.name} {more.user.age}의 장바구니</h6>
+      <button onClick={() => {
+        dispatch(changeAge(20))
+      }}>버튼</button>
+      
       <Table>
         <thead>
           <tr>
@@ -28,11 +34,13 @@ const Cart = () => {
               return (
                 <tr key={i}>
                   <td>1</td>
+                  <td>{more.cart[i].id}</td>                  
                   <td>{more.cart[i].name}</td>                  
                   <td>{ more.cart[i].count }</td>
                   <td>
                     <button onClick={() => { 
-                      
+                      //dispatch(changeName())
+                      dispatch(chageCounter())
                     }}>+</button>
                   </td>
                 </tr>
