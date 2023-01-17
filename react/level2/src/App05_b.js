@@ -2,7 +2,7 @@
 
 import './App.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import data from './data';
 //import bg from './img/main-bg.png'
 import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
@@ -10,6 +10,12 @@ import Detail from './pages/Detail';
 import Home from './pages/Home';
 import About from './pages/About';
 import Event from './pages/Event';
+import Cart from './pages/Cart';
+
+
+//context를 만들어줌. context는 state보관함임.
+//let Context1 = createContext();
+//export let Context1 = createContext();
 
 
 
@@ -42,6 +48,9 @@ function App() {
   let [shoes] = useState(data);
   //console.log(shoes);
   let navigate = useNavigate()
+  //props 대신 Context API 쓸거임
+  //[상품0의 재고, 상품1의 재고, 상품2의 재고] => [10, 11, 12] 라고 하고 이걸 Detail, TabContent에서 쓰고 싶음
+  let [재고] = useState([10, 11, 12])
 
   return (
     <div className="App">
@@ -167,7 +176,15 @@ function App() {
         } /> */}
 
         <Route path="/" element={<Home shoes={shoes} /> } />
-        <Route path="/detail" element={<Detail />} />
+        {/* <Route path="/detail" element={<Detail />} /> */} 
+        {/* <Route path="/detail/:id" element={
+          <Context1.Provider value={{ 재고, shoes }}>
+            <Detail shoes={shoes} />
+          </Context1.Provider>
+        } />  */}
+        <Route path="/detail/:id" element={<Detail shoes={shoes} />} /> 
+        <Route path='/cart' element={ <Cart/> } />
+        
         
         {/* 
         <Route path="/detail/0" element={<Detail />} />

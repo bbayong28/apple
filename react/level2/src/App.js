@@ -1,16 +1,22 @@
 import './App.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import data from './data';
 import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './pages/Detail';
 import Home from './pages/Home';
 import About from './pages/About';
 import Event from './pages/Event';
+import Cart from './pages/Cart';
+
+
+//export let Context1 = createContext();
+
 
 function App() {
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate()
+  //let [재고] = useState([10, 11, 12])
 
 
   return (
@@ -25,6 +31,7 @@ function App() {
             <Nav.Link onClick={() => { navigate('/detail') }}>Detail</Nav.Link>
             <Nav.Link onClick={() => { navigate('/about') }}>About</Nav.Link>
             <Nav.Link onClick={() => { navigate('/event') }}>Event</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/cart') }}>Cart</Nav.Link>
             <Nav.Link onClick={() => { navigate(1) }}>앞으로이동</Nav.Link>
             <Nav.Link onClick={() => { navigate(-1) }}>뒤로이동</Nav.Link>
           </Nav>
@@ -33,8 +40,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home shoes={shoes} setShoes={setShoes} /> } />{/* 
-        <Route path="/detail" element={<Detail shoes={shoes} />} />     */}  
+        <Route path="/detail" element={<Detail shoes={shoes} />} />     */}   
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />      
+        <Route path='/cart' element={ <Cart/> } />
         
 
         <Route path="/about" element={<About />}>          

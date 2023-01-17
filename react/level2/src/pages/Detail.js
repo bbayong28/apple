@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { useFetcher, useParams } from 'react-router-dom';
 import { Nav } from 'react-bootstrap'
+//import { Context1 } from '../App';
 
 const Detail = (props) => {
 
+  //let { 재고 } = useContext(Context1);
+
   let { id } = useParams();
-  let 찾은상품 = props.shoes.find(function (x) {
-    return x.id == id
-  });
+  let 찾은상품 = props.shoes.find(x => x.id == id);
   let [count, setCount] = useState(0);
   let [popup, setPopup] = useState(true);
   let [num, setNum] = useState('')
-  let [tab, setTab] = useState(0)
+  let [tab, setTab] = useState(0);
+  let [fade2, setFade2] = useState('');
+
 
   useEffect(() => { 
     let a = setTimeout(() => { setPopup(false) }, 2000)
@@ -25,9 +28,17 @@ const Detail = (props) => {
       alert('숫자를 입력하세요.');
     }
   }, [num])
+
+  useEffect(() => {
+    setFade2('end')
+    return () => { 
+      setFade2('')  
+    }
+  },[])
   
   return (
-    <div className="container">      
+    <div className={'container start ' + fade2}>      
+      
       {
         popup == true
           ? <div className='alert alert-warning'>2초이내 구매시 할인</div>
@@ -68,8 +79,24 @@ const Detail = (props) => {
   )
 }
 
-function Tabcontent (props) { 
-  return  [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>] [props.tab]
+function Tabcontent({ tab }) { 
+  
+  //let { 재고 } = useContext(Context1);
+  let [fade, setFade] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => { setFade('end') }, 200);    
+    return () => { 
+      setFade('')
+    }
+  }, [tab])
+  
+  
+  return (
+    <div className={'start ' + fade}>
+    {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]}
+    </div>
+  )
 } 
 
 

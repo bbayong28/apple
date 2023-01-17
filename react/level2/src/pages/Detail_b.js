@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useFetcher, useParams } from 'react-router-dom';
+import { Nav } from 'react-bootstrap'
 //import styled from 'styled-components';
+import { Context1 } from '../App';
 
 //옛날 갈고리 다는 법
 //class Detail2 extends React.Component { 
@@ -61,14 +63,19 @@ const Detail = (props) => {
     console.log(1);
   } */
   
+  // useContext(Context1);
+  //let a = useContext(Context1);
+  let { 재고 } = useContext(Context1);
+
   let { id } = useParams();
   //console.log(id);  
-  let 찾은상품 = props.shoes.find(x => x.id == id)
-  //let 찾은상품 = props.shoes.find( function (x) { return x.id == id })  
+  //let 찾은상품 = props.shoes.find(function (x) { return x.id == id });
+  let 찾은상품 = props.shoes.find(x => x.id == id); 
   let [count, setCount] = useState(0);
   let [popup, setPopup] = useState(true);
   let [num, setNum] = useState('');
   let [tab, setTab] = useState('');
+  let [fade2, setFade2] = useState('')
   
   useEffect(() => { 
     /* mount, update 시 여기 코드 발생 */
@@ -92,8 +99,15 @@ const Detail = (props) => {
     }
   }, [num])
 
+  useEffect(() => {
+    setFade2('end')
+    return () => { 
+      setFade2('')  
+    }
+  },[])
+
   return (
-    <div className="container">
+    <div className={'container start ' + fade2}>    
       {/* 
       <Box>
         <YellowBtn>버튼</YellowBtn>
@@ -122,6 +136,8 @@ const Detail = (props) => {
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}</p>
+          {/* <p>{ 재고 }</p>
+          <p>{ 재고[0] }</p> */}
           <button className="btn btn-danger">주문하기</button> 
         </div>         
       </div>
@@ -138,7 +154,7 @@ const Detail = (props) => {
         <Nav.Link eventKey="link2" onClick={() => { setTab(2) }}>버튼2</Nav.Link>
       </Nav.Item>
       </Nav>
-      <Tabcontent tab={tab} />
+      <Tabcontent tab={tab} shoes={props.shoes}/>
     </div> 
   )
 }
@@ -157,8 +173,50 @@ const Detail = (props) => {
 //}
 
 
-function Tabcontent ( ) { 
-  return  [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>] [tab]
+/* function Tabcontent (props) { 
+  return (
+    <div className='start'>
+    {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][props.tab]}
+    </div>
+  )
+}  */
+//props 안가져오고 props명 가져올 때 {props명}
+//버튼0,버튼1,버튼2를 누를때마다 end 붙이면 되는데 그럼너무 코드가 지저분해짐. 그래서 tab state가 변할 때 end 부착하도록 함.
+function Tabcontent({ tab, shoes }) {
+  
+  //let { 재고 } = useContext(Context1);
+
+  let [fade, setFade] = useState('');
+
+  //useEffect(() => {
+  //  setTimeout(() => { setFade('end') }, 200)    
+  //  return () => { 
+  //    setFade('')
+  //  }
+  //}, [tab])
+  
+  useEffect(() => {
+    let a = setTimeout(() => { setFade('end') }, 200)    
+    return () => {      
+      clearTimeout(a);
+      setFade('')
+    }
+  }, [tab])
+
+
+
+  return (
+    /* <div className={ 'start ' + fade }> */
+    /* <div className={`start ${fade}`}>
+    {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]}
+    </div> */
+    //<div className={'start ' + fade}>
+    //{[<div>{재고}</div>, <div>내용1</div>, <div>내용2</div>][tab]}
+    //</div>
+    <div className={'start ' + fade}>
+    {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]}
+    </div>
+  )
 } 
 
 
