@@ -20,6 +20,23 @@ import Cart from './pages/Cart';
 
 
 function App() {
+
+
+
+  let obj = { name: 'kim' }
+  //obj가 객체라서 강제로 문자로 변환하는 과정에서 깨짐
+  //localStorage.setItem('data', obj);
+
+  //array/object를 저장하려면 JSON으로 바꾸면 됨.
+  //array/object -> JSON변환은 JSON.stringify()
+  //JSON.stringify(obj)
+  localStorage.setItem('data', JSON.stringify(obj));
+  let 꺼낸거 = localStorage.getItem('data');
+  console.log(꺼낸거)
+  //console.log(꺼낸거.name)
+  console.log(JSON.parse(꺼낸거))
+  //console.log(JSON.parse(꺼낸거).name)
+
 /* 코드가 너무 길고 복잡해져서 data.js에 넣고 가져와서 쓰기! */
 /* let [shoes, setShoes] = useState([
     {
@@ -50,7 +67,9 @@ function App() {
   let navigate = useNavigate()
   //props 대신 Context API 쓸거임
   //[상품0의 재고, 상품1의 재고, 상품2의 재고] => [10, 11, 12] 라고 하고 이걸 Detail, TabContent에서 쓰고 싶음
-  let [재고] = useState([10, 11, 12])
+  //let [재고] = useState([10, 11, 12])
+
+
 
   return (
     <div className="App">

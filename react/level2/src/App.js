@@ -1,6 +1,6 @@
 import './App.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import data from './data';
 import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './pages/Detail';
@@ -14,6 +14,28 @@ import Cart from './pages/Cart';
 
 
 function App() {
+
+
+  //useEffect(() => { 
+  //  localStorage.setItem('watched', JSON.stringify( [] ))
+  //},[])
+  useEffect(() => { 
+    if(!localStorage.getItem('watched'))
+    localStorage.setItem('watched', JSON.stringify( [] ))
+  },[])
+
+  let obj = { name: 'kim' }
+  
+ //localStorage.setItem('data', obj);
+  localStorage.setItem('data', JSON.stringify(obj));
+  let 꺼낸거 = localStorage.getItem('data');
+  console.log(꺼낸거)
+  console.log(꺼낸거.name)
+  console.log(JSON.parse(꺼낸거))
+  console.log(JSON.parse(꺼낸거).name)
+
+
+
   let [shoes, setShoes] = useState(data);
   let navigate = useNavigate()
   //let [재고] = useState([10, 11, 12])

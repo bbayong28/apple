@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useFetcher, useParams } from 'react-router-dom';
 import { Nav } from 'react-bootstrap'
 //import styled from 'styled-components';
-import { Context1 } from '../App';
+//import { Context1 } from '../App';
+import { addItem } from '../state/store';
+import { useDispatch } from 'react-redux';
 
 //옛날 갈고리 다는 법
 //class Detail2 extends React.Component { 
@@ -75,7 +77,10 @@ const Detail = (props) => {
   let [popup, setPopup] = useState(true);
   let [num, setNum] = useState('');
   let [tab, setTab] = useState('');
-  let [fade2, setFade2] = useState('')
+  let [fade2, setFade2] = useState('');
+  let dispatch = useDispatch();
+
+
   
   useEffect(() => { 
     /* mount, update 시 여기 코드 발생 */
@@ -104,7 +109,52 @@ const Detail = (props) => {
     return () => { 
       setFade2('')  
     }
-  },[])
+  }, [])
+  
+  useEffect(() => { 
+    //누가 Detail 페이지 접속하면 
+    //그 페이지에 보이는 상품 id 가져와서 
+    //localStorage에 watched s항s목에 추가해줘
+
+  }, [])
+
+
+  useEffect(() => { 
+    //누가 Detail 페이지 접속하면 
+  }, [])
+  
+  useEffect(() => { 
+    //그 페이지에 보이는 상품 id 가져와서 
+    console.log(찾은상품.id);
+  }, [])
+  
+  useEffect(() => { 
+  //localStorage에 watched 항목에 추가해줘
+  //localStorage.setItem('watched', JSON.stringify[찾은상품.id])
+    let 꺼낸거 = localStorage.getItem('watched')
+    꺼낸거 = JSON.parse(꺼낸거)
+    꺼낸거.push(찾은상품.id)
+    //중복 제거위해 Set() 사용
+    꺼낸거 = new Set(꺼낸거)
+    //set에 넣은거 빼기
+    꺼낸거 = Array.from(꺼낸거)
+    localStorage.setItem('watched', JSON.stringify(꺼낸거))
+  }, [])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className={'container start ' + fade2}>    
@@ -138,7 +188,10 @@ const Detail = (props) => {
           <p>{찾은상품.price}</p>
           {/* <p>{ 재고 }</p>
           <p>{ 재고[0] }</p> */}
-          <button className="btn btn-danger">주문하기</button> 
+          <button className="btn btn-danger" onClick={() => { 
+            //dispatch(addItem( {id : 1, name : 'Red Knit', count :1} ))
+            dispatch(addItem( {id : 찾은상품.id, name : 찾은상품.title, count : 찾은상품.count} ))
+          }}>주문하기</button> 
         </div>         
       </div>
 

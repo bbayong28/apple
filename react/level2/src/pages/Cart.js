@@ -22,7 +22,7 @@ const Cart = () => {
       <Table>
         <thead>
           <tr>
-            <th>#</th>
+            <th>상품번호</th>
             <th>상품명</th>
             <th>수량</th>
             <th>변경하기</th>
@@ -33,7 +33,6 @@ const Cart = () => {
             more.cart.map((a, i) => { 
               return (
                 <tr key={i}>
-                  <td>1</td>
                   <td>{more.cart[i].id}</td>                  
                   <td>{more.cart[i].name}</td>                  
                   <td>{ more.cart[i].count }</td>
