@@ -2,19 +2,25 @@
 
 import './App.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { createContext, useState, useEffect } from 'react';
+import { lazy, Suspense ,createContext, useState, useEffect } from 'react';
 import data from './data';
-//import bg from './img/main-bg.png'
+////import bg from './img/main-bg.png'
 import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
-import Detail from './pages/Detail';
+//import Detail from './pages/Detail';
 import Home from './pages/Home';
-import About from './pages/About';
-import Event from './pages/Event';
-import Cart from './pages/Cart';
+//import About from './pages/About';
+//import Event from './pages/Event';
+//import Cart from './pages/Cart';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
 
+//메인페이지에선 먼저 로드할 필요 없는 컴포넌트를 lazy import 해 줌
+//lazy import : "필요해질 때 import 해주세요~" 라는 뜻
+const Detail = lazy(() => import('./pages/Detail.js'));
+const About = lazy(() => import('./pages/About.js'));
+const Event = lazy(() => import('./pages/Event.js'));
+const Cart = lazy(() => import('./pages/Cart.js'));
 
 //context를 만들어줌. context는 state보관함임.
 //let Context1 = createContext();
@@ -109,6 +115,7 @@ function App() {
 
   return (
     <div className="App">
+
       <Navbar bg="light" variant="light">
         <Container>
           {/* <Navbar.Brand href="#home">JShop</Navbar.Brand> */}
@@ -202,84 +209,86 @@ function App() {
         </div>           
       </div> */}
       
-
-      <Routes>
-        {/* <Route path="/" element={
-          <>
-            <div className='main-bg'></div>
-            {/* 상품 레이아웃 3개 - bootstrap사용 *
-            <div className='container'>
-              <div className='row'>
-                {
-                  shoes.map((a, i) => { 
-                    return (
-                      <Product shoes={shoes[i]} i={i}></Product>
-                    )
-                  })
-                }          
-              </div>           
-            </div>
-          </>
-        } />
-        {/* <Route path="/detail" element={<div>상세페이지임</div>} /> *
-        <Route path="/detail" element={
-          <div className="container">
-            <div className="row">
-              <div className="col-md-6">
-                <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
+      {/* lazy impory 하면 다른 페이지 로딩시간 길어져서 안보임. 그동안 로딩중이라는 글자 보이게 하려면 <Suspense></Suspense>태그로 감싸줌 */}
+      <Suspense fallback={<div>로딩중임</div>}>
+        <Routes>
+          {/* <Route path="/" element={
+            <>
+              <div className='main-bg'></div>
+              {/* 상품 레이아웃 3개 - bootstrap사용 *
+              <div className='container'>
+                <div className='row'>
+                  {
+                    shoes.map((a, i) => { 
+                      return (
+                        <Product shoes={shoes[i]} i={i}></Product>
+                      )
+                    })
+                  }          
+                </div>           
               </div>
-              <div className="col-md-6">
-                <h4 className="pt-5">상품명</h4>
-                <p>상품설명</p>
-                <p>120000원</p>
-                <button className="btn btn-danger">주문하기</button> 
+            </>
+          } />
+          {/* <Route path="/detail" element={<div>상세페이지임</div>} /> *
+          <Route path="/detail" element={
+            <div className="container">
+              <div className="row">
+                <div className="col-md-6">
+                  <img src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
+                </div>
+                <div className="col-md-6">
+                  <h4 className="pt-5">상품명</h4>
+                  <p>상품설명</p>
+                  <p>120000원</p>
+                  <button className="btn btn-danger">주문하기</button> 
+                </div>
               </div>
-            </div>
-          </div> 
-        } /> */}
+            </div> 
+          } /> */}
 
-        <Route path="/" element={<Home shoes={shoes} /> } />
-        {/* <Route path="/detail" element={<Detail />} /> */} 
-        {/* <Route path="/detail/:id" element={
-          <Context1.Provider value={{ 재고, shoes }}>
-            <Detail shoes={shoes} />
-          </Context1.Provider>
-        } />  */}
-        <Route path="/detail/:id" element={<Detail shoes={shoes} />} /> 
-        <Route path='/cart' element={ <Cart/> } />
+          <Route path="/" element={<Home shoes={shoes} /> } />
+          {/* <Route path="/detail" element={<Detail />} /> */} 
+          {/* <Route path="/detail/:id" element={
+            <Context1.Provider value={{ 재고, shoes }}>
+              <Detail shoes={shoes} />
+            </Context1.Provider>
+          } />  */}
+          <Route path="/detail/:id" element={<Detail shoes={shoes} />} /> 
+          <Route path='/cart' element={ <Cart/> } />
+          
+          
+          {/* 
+          <Route path="/detail/0" element={<Detail />} />
+          <Route path="/detail/1" element={<Detail />} />
+          <Route path="/detail/2" element={<Detail />} />
+          <Route path="/detail/3" element={<Detail />} />
+          ...
+          <Route path="/detail/100" element={<Detail />} /> 
+          */}
         
-        
-        {/* 
-        <Route path="/detail/0" element={<Detail />} />
-        <Route path="/detail/1" element={<Detail />} />
-        <Route path="/detail/2" element={<Detail />} />
-        <Route path="/detail/3" element={<Detail />} />
-        ...
-        <Route path="/detail/100" element={<Detail />} /> 
-        */}
-      
 
-        {/* 
-        <Route path="/about" element={<About />}/>          
-        <Route path="/about/member" element={ <div>조직도</div> }/>
-        <Route path="/about/location" element={<div>회사위치</div>} />
-        */}        
-        
-        {/* 위와 같은데 이건 nasted routes 문법이라고 함. */}
-        <Route path="/about" element={<About />}>          
-          <Route path="member" element={ <div>조직도</div> }/>
-          <Route path="location" element={<div>회사위치</div>} />
-        </Route>
+          {/* 
+          <Route path="/about" element={<About />}/>          
+          <Route path="/about/member" element={ <div>조직도</div> }/>
+          <Route path="/about/location" element={<div>회사위치</div>} />
+          */}        
+          
+          {/* 위와 같은데 이건 nasted routes 문법이라고 함. */}
+          <Route path="/about" element={<About />}>          
+            <Route path="member" element={ <div>조직도</div> }/>
+            <Route path="location" element={<div>회사위치</div>} />
+          </Route>
 
 
-        <Route path="/event" element={<Event />}>
-          <Route path="one" element={ <div>첫 주문시 양배추즙 서비스</div> }/>
-          <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
-        </Route>
-        
-        {/* 404페이지 만들기 */}
-        <Route path="*" element={ <div>없는페이지요</div> }/>
-      </Routes>
+          <Route path="/event" element={<Event />}>
+            <Route path="one" element={ <div>첫 주문시 양배추즙 서비스</div> }/>
+            <Route path="two" element={<div>생일기념 쿠폰받기</div>} />
+          </Route>
+          
+          {/* 404페이지 만들기 */}
+          <Route path="*" element={ <div>없는페이지요</div> }/>
+        </Routes>
+      </Suspense>
 
 
 

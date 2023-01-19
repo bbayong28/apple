@@ -8,7 +8,19 @@ import { useDispatch } from 'react-redux';
 
 
 
+//var a = 0
+
+
 const Detail = (props) => {
+
+
+
+  // 1e9 = 반복문 10억번 돌림 
+  //for (var i = 0; i < 1e9; i++) { 
+  //  a = i;
+  //}
+
+  //let { 재고 } = useContext(Context1);
 
   let { id } = useParams();
   let 찾은상품 = props.shoes.find(x => x.id == id);

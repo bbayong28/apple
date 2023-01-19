@@ -8,6 +8,11 @@ import { useDispatch } from 'react-redux';
 
 
 
+//고의적인 성능저하 일으키기 위한 코드
+//var a = 0
+
+
+
 
 //옛날 갈고리 다는 법
 //class Detail2 extends React.Component { 
@@ -62,6 +67,11 @@ let NewBtn = styled(YellowBtn)`
 
 
 const Detail = (props) => {
+
+  // 1e9 = 반복문 10억번 돌림 
+  //for (var i = 0; i < 1e9; i++) { 
+  // a = i;
+  //
 
 /* 
   for (var i = 0; i < 10000; i++) {

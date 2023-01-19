@@ -1,6 +1,6 @@
 import './App.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { createContext, useState, useEffect } from 'react';
+import { lazy, Suspense ,createContext, useState, useEffect } from 'react';
 import data from './data';
 import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
 import Detail from './pages/Detail';
@@ -10,6 +10,12 @@ import Event from './pages/Event';
 import Cart from './pages/Cart';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+
+
+//const Detail = lazy(() => import('./pages/Detail.js'));
+//const About = lazy(() => import('./pages/About.js'));
+//const Event = lazy(() => import('./pages/Event.js'));
+//const Cart = lazy(() => import('./pages/Cart.js'));
 
 
 
@@ -72,10 +78,18 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path="/" element={<Home shoes={shoes} setShoes={setShoes} />} />
-        {/*<Route path="/detail" element={<Detail shoes={shoes} />} />*/}   
-        <Route path="/detail/:id" element={ <Detail shoes={shoes} /> } />      
-        <Route path='/cart' element={ <Cart /> } />
+        <Route path="/" element={<Home shoes={shoes} setShoes={setShoes} /> } />{/* 
+        <Route path="/detail" element={<Detail shoes={shoes} />} />     */}   
+        <Route path="/detail/:id" element={
+          /* <Suspense fallback={<div>로딩중임</div>}> */
+            <Detail shoes={shoes} />
+          /* </Suspense> */
+        } />      
+        <Route path='/cart' element={
+          /* <Suspense fallback={<div>로딩중임</div>}> */
+            <Cart />
+          /* </Suspense> */
+        } />
         
 
         <Route path="/about" element={<About />}>          
