@@ -2,12 +2,12 @@
 
 import './App.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { lazy, Suspense ,createContext, useState, useEffect } from 'react';
+import { lazy, Suspense ,createContext, useState, useEffect, startTransition, useTransition, useDeferredValue } from 'react';
 import data from './data';
 ////import bg from './img/main-bg.png'
 import { Routes, Route, Link, useNavigate, Outlet} from 'react-router-dom'
-//import Detail from './pages/Detail';
 import Home from './pages/Home';
+//import Detail from './pages/Detail';
 //import About from './pages/About';
 //import Event from './pages/Event';
 //import Cart from './pages/Cart';
@@ -26,7 +26,7 @@ const Cart = lazy(() => import('./pages/Cart.js'));
 //let Context1 = createContext();
 //export let Context1 = createContext();
 
-
+let a = new Array(10000).fill(0)
 
 
 
@@ -108,13 +108,35 @@ function App() {
       return a.data
     })
   )
-
   //result.data
   //result.isLoading
   //result.error
 
+  //batching
+  let [name, setName] = useState('')   
+  //console.log(name)
+
+  //let [isPending, startTransition] = useTransition()
+  let [isPending, 늦게처리] = useTransition()
+
+
   return (
     <div className="App">
+
+      
+      {/* <input onChange={(e) => { setName(e.target.value) }}></input> */}
+      <input onChange={(e) => { 늦게처리(() => { setName(e.target.value)
+        })
+      }} /> 
+      {/* div 를 여러개 만들어서 성능저하를 일으켜보자 */}
+      {/* div 를 여러개 만드는 법 => 반복문 */}
+
+      {
+        isPending ? '로딩중입니다.' : 
+        a.map(() => { 
+          return <div>{ name }</div>
+        })
+      }
 
       <Navbar bg="light" variant="light">
         <Container>

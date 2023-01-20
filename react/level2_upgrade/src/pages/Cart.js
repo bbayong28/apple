@@ -3,17 +3,19 @@ import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeName, changeAge } from '../state/userSlice'
 import { addCounter } from '../state/store'
+import { memo, useState, useMemo } from 'react'
+
+
+
 
 const Cart = () => {
-
-  //let more = useSelector((state) => { return state })
   let more = useSelector((state) => state)
   let dispatch = useDispatch()
-  
-  
+
+
+
   return (
     <div>
-
       <h6>{more.user.name} {more.user.age}의 장바구니</h6>
       <button onClick={() => {
         dispatch(changeAge(20))

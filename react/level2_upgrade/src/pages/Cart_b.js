@@ -1,10 +1,36 @@
-import React from 'react'
+import {React, useState} from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 //import { changeName, changeAge } from '../state/store'
 import { changeName, changeAge } from '../state/userSlice'
+import { addCounter } from '../state/store'
+import { memo, useState, useMemo } from 'react'
 
-const Cart = () => {
+
+
+//자식 컴포넌트 재렌더링 막기
+//function Child() { 
+//  return (    
+//    <div>자식임</div>
+//    
+//  )
+//}
+//let Child = memo (function () { 
+//  console.log('재렌더링됨')
+//  return (
+//    <div>자식임</div>    
+//  )
+//} )
+
+
+//useMemo()
+//function 함수() { 
+//  return (
+//    //반복문 10억번 돌린결과
+//  )
+//}
+
+const Cart = () => { 
 
 //useSelector( ( state ) => { return state } ) => Redux store 안에 있던 state 남음
   //참고 useSelector 편하게 쓰려면?
@@ -30,10 +56,22 @@ const Cart = () => {
   //console.log(state.cart[0].name) 
 
   let dispatch = useDispatch();
+
+  //let [count, setCount] = useState(0)
+
+
+  //<Cart/>가 재렌더링 될 때마다 실행됨.
+  //let result = 함수();
+  //useMemo()쓰면 컴포넌트 렌더링 시 1회만 실행해줌
+  //let result = useMemo(() => { return 함수()})
+  //state가 변화할 때만 함수() 실행됨.
+  let result = useMemo(() => { return 함수()},[state])
+  
   
   return (
     <div>
-
+      {/* <Child/>
+      <button onClick={ setCount(count + 1) }></button> */}
       <h6>{more.user.name} {more.user.age}의 장바구니</h6>
       <button onClick={() => {
         dispatch(changeAge())
