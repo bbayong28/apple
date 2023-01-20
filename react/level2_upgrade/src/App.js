@@ -1,3 +1,5 @@
+/* eslint-disable  */
+
 import './App.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { lazy, Suspense ,createContext, useState, useEffect, startTransition, useTransition, useDeferredValue } from 'react';
@@ -12,6 +14,7 @@ const Detail = lazy(() => import('./pages/Detail.js'));
 const About = lazy(() => import('./pages/About.js'));
 const Event = lazy(() => import('./pages/Event.js'));
 const Cart = lazy(() => import('./pages/Cart.js'));
+const Age = lazy(() => import('./Age.js'));
 
 let a = new Array(10000).fill(0)
 
@@ -43,7 +46,7 @@ function App() {
 
   let [isPending, 늦게처리] = useTransition()
 
-  let state = useDeferredValue(state)
+  let statee = useDeferredValue(name)
 
   return (
     <div className="App">
@@ -56,7 +59,7 @@ function App() {
       {
         isPending ? '로딩중입니다.' : 
         a.map(() => { 
-          return <div>{ name }</div>
+          return <div>{ statee }</div>
         })
       }
 
@@ -70,6 +73,7 @@ function App() {
             <Nav.Link onClick={() => { navigate('/cart') }}>Cart</Nav.Link>
             <Nav.Link onClick={() => { navigate(1) }}>앞으로이동</Nav.Link>
             <Nav.Link onClick={() => { navigate(-1) }}>뒤로이동</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/age') }}>age</Nav.Link>
           </Nav>
           <Nav className="ms-auto">
             { result.isLoading && '로딩중입니다' }
@@ -87,6 +91,7 @@ function App() {
               <Detail shoes={shoes} />
             /* </Suspense> */
           } />  
+          <Route path='/age' element={ <Age/> }></Route>
           
           <Route path='/cart' element={
             /* <Suspense fallback={<div>로딩중임</div>}> */
@@ -117,3 +122,7 @@ function App() {
 
 
 export default App;
+
+
+
+
