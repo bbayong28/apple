@@ -8,6 +8,7 @@ app.listen(8080, function () {
 
 //이거 세 줄 추가해놔야 ajax 잘됨
 app.use(express.json());
+//npm i cors 터미널에 입력하고 사용
 var cors = require('cors');
 app.use(cors());
 
